@@ -79,8 +79,16 @@ const Index = () => {
     },
   ];
   const [slideIdx, setSlideIdx] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const nextSlide = () => setSlideIdx((i) => (i + 1) % slides.length);
   const prevSlide = () => setSlideIdx((i) => (i - 1 + slides.length) % slides.length);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(nextSlide, 6000);
