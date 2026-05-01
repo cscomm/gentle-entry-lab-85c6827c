@@ -23,11 +23,11 @@ import aSolar from "@/assets/a-solar.jpg";
 import aElec from "@/assets/a-elec.jpg";
 
 const navItems = [
-  { label: "홈", href: "#home" },
-  { label: "제품센터", href: "#products" },
-  { label: "회사소개", href: "#about" },
-  { label: "응용분야", href: "#applications" },
-  { label: "문의하기", href: "#contact" },
+  { en: "Home", ko: "홈", href: "#home" },
+  { en: "Products", ko: "제품센터", href: "#products" },
+  { en: "About", ko: "회사소개", href: "#about" },
+  { en: "Applications", ko: "응용분야", href: "#applications" },
+  { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
 const productCategories = ["전체 제품", "석영 블록", "석영 사", "석영 분말", "고순도 석영"];
@@ -65,17 +65,17 @@ const Index = () => {
   const slides = [
     {
       img: heroImage,
-      alt: "고순도 석영 크리스털",
-      title: "자연에서 온 순수함",
-      sub: "산업을 이끄는 기술력",
-      desc: "SiLiCA는 20년 이상의 노하우로 최고 품질의 고순도 석영을 생산합니다",
+      alt: "High-purity quartz crystal",
+      title: "Purity from Nature",
+      sub: "Technology that Leads Industry",
+      desc: "With over 20 years of expertise, SiLiCA produces the highest quality high-purity quartz",
     },
     {
       img: heroNanoImage,
-      alt: "고순도 나노 실리카 파우더",
-      title: "초미세 나노 파우더",
-      sub: "정밀 산업의 새로운 기준",
-      desc: "전자, 코팅, 첨단 소재를 위한 고분산 고순도 나노 실리카 파우더",
+      alt: "High-purity nano silica powder",
+      title: "Ultrafine Nano Powder",
+      sub: "A New Standard for Precision Industries",
+      desc: "Highly dispersed, high-purity nano silica powder for electronics, coatings, and advanced materials",
     },
   ];
   const [slideIdx, setSlideIdx] = useState(0);
@@ -105,17 +105,27 @@ const Index = () => {
       {/* Nav (fixed) */}
       <header className="fixed inset-x-0 top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-8">
-          <a href="#home" className="text-2xl font-semibold tracking-tight">
-            Si<span className="text-primary-glow">Li</span>CA
+          <a href="#home" className="flex flex-col leading-tight">
+            <span className="text-2xl font-semibold tracking-tight">
+              Si<span className="text-primary-glow">Li</span>CA
+            </span>
+            <span className="mt-0.5 text-[11px] tracking-[0.2em] text-muted-foreground">
+              규석 전문 기업
+            </span>
           </a>
           <nav className="hidden items-center gap-10 md:flex">
             {navItems.map((item) => (
               <a
-                key={item.label}
+                key={item.en}
                 href={item.href}
-                className="text-sm text-foreground/85 transition-colors hover:text-primary-glow"
+                className="group relative inline-block text-sm text-foreground/85 transition-colors hover:text-primary-glow"
               >
-                {item.label}
+                <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                  {item.en}
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  {item.ko}
+                </span>
               </a>
             ))}
           </nav>
