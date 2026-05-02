@@ -70,9 +70,9 @@ const Index = () => {
     {
       img: heroNanoImage,
       alt: "High-purity nano silica powder",
-      title: "Ultrafine Nano Powder",
+      title: "High-Purity Ultrafine Silica Powder",
       sub: "A New Standard for Precision Industries",
-      desc: "Highly dispersed, high-purity nano silica powder for electronics, coatings, and advanced materials",
+      desc: "전자·코팅·첨단소재 산업에 적용되는 고분산 고순도 실리카 분말",
     },
   ];
   const [slideIdx, setSlideIdx] = useState(0);
@@ -217,11 +217,14 @@ const Index = () => {
             {slides[slideIdx].desc}
           </p>
           <Button
+            asChild
             size="lg"
             className="mt-10 h-12 rounded-full bg-primary px-8 text-primary-foreground shadow-[var(--shadow-glow)] hover:bg-primary/90"
           >
-            제품 살펴보기
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="#products" onClick={() => setActiveCat("전체 제품")}>
+              제품 살펴보기
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
         </div>
 
