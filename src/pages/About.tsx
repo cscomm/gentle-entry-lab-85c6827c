@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import SiteHeader from "@/components/SiteHeader";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-4xl px-6 py-24 md:py-32">
+      <SiteHeader />
+      <div className="mx-auto max-w-4xl px-6 pb-24 pt-32 md:pb-32 md:pt-40">
         <Button asChild variant="ghost" className="mb-8">
           <Link to="/">
             <ArrowLeft className="mr-2 h-4 w-4" /> 홈으로
