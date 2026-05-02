@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProductBySlug, productCatalog } from "@/data/products";
+import SiteHeader from "@/components/SiteHeader";
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -24,22 +25,7 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-8">
-          <Link to="/" className="inline-flex flex-col leading-tight">
-            <span className="text-2xl font-bold tracking-tight">
-              Si<span className="text-primary-glow">Li</span>CA
-            </span>
-            <span className="mt-1 block text-center font-medium text-muted-foreground" style={{ fontSize: "0.62rem", letterSpacing: "0.05em" }}>
-              규석 전문 기업
-            </span>
-          </Link>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/85 hover:text-primary-glow">
-            <ArrowLeft className="h-4 w-4" /> 홈으로
-          </Link>
-        </div>
-      </header>
+      <SiteHeader transparentAtTop />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
