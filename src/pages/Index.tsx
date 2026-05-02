@@ -65,7 +65,7 @@ const Index = () => {
       alt: "High-purity quartz crystal",
       title: "Purity from Nature",
       sub: "Technology that Leads Industry",
-      desc: "용융실리카와 고품위 실리카를 다양한 산업에 최적의 솔루션을 제공합니다.",
+      desc: "용융실리카와 고품위 실리카를 다양한 산업에 최적의 솔루션 제공합니다.",
     },
     {
       img: heroNanoImage,
