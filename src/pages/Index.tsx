@@ -253,24 +253,27 @@ const Index = () => {
               ABOUT US
             </span>
             <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-              20년 이상의 기술력으로<br />고순도 석영을<br />완성합니다
+              국내 유일의 고품위<br />규석 광산을<br />직접 개발합니다
             </h2>
             <p className="mt-6 text-muted-foreground">
-              SiLiCA는 석영 소재 전문 생산기업으로, 20년 이상의 기술력으로 최고 품질의 고순도 석영을 생산하고 있습니다.
+              당사는 국내에는 현재 유일한 고품위 규석 광산을 직접 개발하여 운영 중이며, 채광 탐사부터 1차 공정을 자체적으로 수행하여 최고 품질의 고품위 석영을 생산하고 있습니다.
             </p>
             <p className="mt-4 text-muted-foreground">
-              ISO 9001 품질 관리 시스템 인증을 보유하며, 반도체, 광학, 태양광, 전자 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
+              원료 선별부터 완제품까지 운영되는 각 단계의 차별화된 품질 관리 시스템을 통해 고객의 높은 기대에 부합하는 제품을 생산하고 있습니다.
             </p>
             <p className="mt-4 text-muted-foreground">
-              SiLiCA는 원료 선별부터 완제품까지 운영되는 각 단계의 차별화된 품질 관리 시스템을 통해 고객의 높은 기대에 부합하는 제품을 생산하고 있습니다.
+              용융실리카의 경우 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
             </p>
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="mt-8 h-12 rounded-full border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground"
             >
-              회사 소개 보기
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <Link to="/about">
+                회사 소개 보기
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -334,8 +337,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Applications */}
-      <section id="applications" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      {/* Applications - 임시 숨김 (상세페이지 작업 중) */}
+      <section id="applications" className="mx-auto hidden max-w-7xl px-6 py-24 md:py-32">
         <div className="text-center">
           <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
             응용 분야
