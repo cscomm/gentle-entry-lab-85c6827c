@@ -26,7 +26,7 @@ import aElec from "@/assets/a-elec.jpg";
 
 const navItems = [
   { en: "Home", ko: "홈", href: "#home" },
-  { en: "Materials", ko: "제품", href: "#products", dropdown: true },
+  { en: "Mineral Product", ko: "제품", href: "#products", dropdown: true },
   { en: "About", ko: "회사소개", href: "#about" },
   { en: "Applications", ko: "응용분야", href: "#applications" },
   { en: "Contact", ko: "문의하기", href: "#contact" },
@@ -65,7 +65,7 @@ const Index = () => {
       alt: "High-purity quartz crystal",
       title: "Purity from Nature",
       sub: "Technology that Leads Industry",
-      desc: "With over 20 years of expertise, SiLiCA produces the highest quality high-purity quartz",
+      desc: "용융실리카와 고품위 실리카를 다양한 산업에 최적의 솔루션을 제공합니다.",
     },
     {
       img: heroNanoImage,
@@ -280,9 +280,12 @@ const Index = () => {
             <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
               제품 카테고리
             </span>
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              Mineral Product
+            </h2>
           </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
             {productCategories.map((cat) => (
               <button
                 key={cat}
