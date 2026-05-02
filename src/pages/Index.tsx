@@ -26,24 +26,19 @@ import aElec from "@/assets/a-elec.jpg";
 
 const navItems = [
   { en: "Home", ko: "홈", href: "#home" },
-  { en: "Products", ko: "제품", href: "#products", dropdown: true },
+  { en: "Materials", ko: "제품", href: "#products", dropdown: true },
   { en: "About", ko: "회사소개", href: "#about" },
   { en: "Applications", ko: "응용분야", href: "#applications" },
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories = ["전체 제품", "석영 블록", "석영 사", "석영 분말", "고순도 석영"];
+const productCategories = ["전체 제품", "용융규석", "용융규사", "용융규석미세분말", "고순도규석"];
 
 const products = [
-  { img: pBlockA, title: "A급 융편석영 블록", desc: "최고급 융편석영 블록, 반도체 용도 및 고급 광학 용도에 적합", cat: "석영 블록" },
-  { img: pBlockB, title: "B급 융편석영 블록", desc: "중급 융편석영 블록, 제철 용도 및 재료 용도에 적합", cat: "석영 블록" },
-  { img: pBlockC, title: "C급 융편석영 블록", desc: "일반 융편석영 블록, 단열 용도 및 내화 용도에 적합", cat: "석영 블록" },
-  { img: pSandA, title: "A급 융편석영 사", desc: "최고급 융편석영 사, 정밀 용도 및 고급 소재 용도에 적합", cat: "석영 사" },
-  { img: pSandB, title: "B급 융편석영 사", desc: "중급 융편석영 사, 단열 용도 및 재료 용도에 적합", cat: "석영 사" },
-  { img: pSandC, title: "C급 융편석영 사", desc: "일반 융편석영 사, 내화 용도 및 기초 용도에 적합", cat: "석영 사" },
-  { img: pPowder, title: "융편석영 미세분말", desc: "고분산 융편석영 미세 분말, 전자 소재 및 코팅 용도에 적합", cat: "석영 분말" },
-  { img: pProcess, title: "융편석영 생산공정", desc: "SiLiCA 최고급 융편석영 생산 전 과정을 확인해 보세요", cat: "고순도 석영" },
-  { img: pQuality, title: "제품 품질지표", desc: "SiLiCA 제품 품질 지표 및 분석 시험 실험 결과", cat: "고순도 석영" },
+  { img: pBlockA, slug: "fused-silica-block", title: "용융규석", desc: "최고급 융편석영 블록 — 반도체 및 고급 광학 용도에 적합", cat: "용융규석" },
+  { img: pSandA, slug: "fused-silica-sand", title: "용융규사", desc: "정밀 주조 및 첨단 산업용 고품질 용융규사", cat: "용융규사" },
+  { img: pPowder, slug: "fused-silica-powder", title: "용융규석미세분말", desc: "고분산 융편석영 미세 분말, 전자 소재 및 코팅 용도에 적합", cat: "용융규석미세분말" },
+  { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 프리미엄 고순도 규석 원료", cat: "고순도규석" },
 ];
 
 const applications = [
@@ -285,7 +280,6 @@ const Index = () => {
             <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
               제품 카테고리
             </span>
-            <h2 className="mt-6 text-4xl font-bold md:text-5xl">우리의 핵심 제품 라인업</h2>
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-3">
@@ -304,7 +298,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {filteredProducts.map((p) => (
               <article
                 key={p.title}
@@ -321,12 +315,12 @@ const Index = () => {
                 <div className="p-6">
                   <h3 className="text-lg font-semibold">{p.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                  <a
-                    href="#"
+                  <Link
+                    to={`/products/${p.slug}`}
                     className="mt-5 inline-flex items-center gap-2 text-sm text-primary-glow transition hover:gap-3"
                   >
                     자세히 보기 <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
