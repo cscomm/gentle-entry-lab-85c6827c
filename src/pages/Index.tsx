@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, ChevronLeft, ChevronRight, MapPin, Mail, Clock, Phone } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, MapPin, Mail, Clock, Phone, ChevronDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { productCatalog } from "@/data/products";
 
 import heroImage from "@/assets/hero-quartz.jpg";
 import heroNanoImage from "@/assets/hero-nanopowder.jpg";
@@ -24,7 +26,7 @@ import aElec from "@/assets/a-elec.jpg";
 
 const navItems = [
   { en: "Home", ko: "홈", href: "#home" },
-  { en: "Products", ko: "제품센터", href: "#products" },
+  { en: "Products", ko: "제품", href: "#products", dropdown: true },
   { en: "About", ko: "회사소개", href: "#about" },
   { en: "Applications", ko: "응용분야", href: "#applications" },
   { en: "Contact", ko: "문의하기", href: "#contact" },
@@ -138,20 +140,41 @@ const Index = () => {
           </a>
           <nav className="hidden items-center gap-10 md:flex">
             {navItems.map((item) => (
-              <a
-                key={item.en}
-                href={item.href}
-                className={`group relative inline-block text-[15px] font-semibold tracking-wide transition-colors duration-500 hover:text-primary-glow ${
-                  scrolled ? "text-foreground/85" : "text-white/95 [text-shadow:_0_1px_2px_rgb(0_0_0_/_45%)]"
-                }`}
-              >
-                <span className="block transition-opacity duration-200 group-hover:opacity-0">
-                  {item.en}
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                  {item.ko}
-                </span>
-              </a>
+              <div key={item.en} className="group relative">
+                <a
+                  href={item.href}
+                  className={`relative inline-flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors duration-500 hover:text-primary-glow ${
+                    scrolled ? "text-foreground/85" : "text-white/95 [text-shadow:_0_1px_2px_rgb(0_0_0_/_45%)]"
+                  }`}
+                >
+                  <span className="relative inline-block">
+                    <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                      {item.en}
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                      {item.ko}
+                    </span>
+                  </span>
+                  {item.dropdown && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
+                </a>
+
+                {item.dropdown && (
+                  <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-xl border border-border bg-background/95 shadow-xl backdrop-blur-md">
+                      {productCatalog.map((p) => (
+                        <Link
+                          key={p.slug}
+                          to={`/products/${p.slug}`}
+                          className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition last:border-0 hover:bg-secondary hover:text-primary-glow"
+                        >
+                          <div className="font-semibold">{p.name}</div>
+                          <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
         </div>
