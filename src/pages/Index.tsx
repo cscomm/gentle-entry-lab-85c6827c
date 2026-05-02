@@ -309,118 +309,133 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="bg-secondary/40 py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-              Contact Us
-            </span>
-            <h2 className="mt-6 text-4xl font-bold md:text-5xl">문의하기</h2>
-            <p className="mt-4 text-muted-foreground">
-              궁금한 사항이 있으시면 언제든지 문의해 주세요. 빠르게 답변드리겠습니다.
-            </p>
-          </div>
+      {/* Contact — distinctive dark panel */}
+      <section
+        id="contact"
+        className="relative overflow-hidden bg-foreground py-24 text-background md:py-32"
+      >
+        {/* decorative glows */}
+        <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-primary-glow/20 blur-3xl" />
+        {/* subtle grid overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
-            {/* Info */}
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary-glow">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">공장 주소</h3>
-                    <p className="mt-2 text-muted-foreground">경기도 화성시 팔탄면 고주로 257-58</p>
-                    <p className="text-sm text-muted-foreground">(우) 18330</p>
-                    <a
-                      href="https://www.google.com/maps?q=경기도+화성시+팔탄면+고주로+257-58"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-3 inline-flex items-center gap-2 text-sm text-primary-glow hover:underline"
-                    >
-                      Open in Maps <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
-                  </div>
-                </div>
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-stretch">
+            {/* Left: heading + info */}
+            <div className="flex flex-col justify-between">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs tracking-widest text-background/80 backdrop-blur">
+                  <MessageSquare className="h-3.5 w-3.5" /> Contact Us
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
+                  프로젝트가 있으신가요?<br />
+                  <span className="text-primary-glow">언제든 문의해 주세요.</span>
+                </h2>
+                <p className="mt-6 max-w-md text-background/70">
+                  최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다. 영업일 기준 1일 이내 답변드립니다.
+                </p>
               </div>
 
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary-glow">
-                    <Mail className="h-5 w-5" />
+              <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:border-primary-glow/60">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-glow/15 text-primary-glow">
+                    <MapPin className="h-4 w-4" />
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold">회사 정보</h3>
-                    <p className="text-muted-foreground">이메일로 문의 주시면 신속히 답변드립니다</p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Clock className="h-4 w-4" /> 평일 09:00 - 18:00
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Phone className="h-4 w-4" /> 031-000-0000
-                    </div>
+                  <h3 className="mt-4 text-sm font-semibold">공장 주소</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-background/70">
+                    경기도 화성시 팔탄면<br />고주로 257-58 (18330)
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:border-primary-glow/60">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-glow/15 text-primary-glow">
+                    <Phone className="h-4 w-4" />
                   </div>
+                  <h3 className="mt-4 text-sm font-semibold">연락처</h3>
+                  <p className="mt-2 flex items-center gap-1.5 text-xs text-background/70">
+                    <Phone className="h-3 w-3" /> 031-000-0000
+                  </p>
+                  <p className="mt-1 flex items-center gap-1.5 text-xs text-background/70">
+                    <Clock className="h-3 w-3" /> 평일 09:00 - 18:00
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Form */}
+            {/* Right: form panel */}
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-border bg-card p-8"
+              className="relative overflow-hidden rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-xl md:p-10"
             >
-              <h3 className="text-lg font-semibold">문의 양식</h3>
-              <div className="mt-6 grid gap-5">
-                <div>
-                  <label className="text-sm text-muted-foreground">이름 *</label>
-                  <Input
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="mt-2 h-11 bg-background"
-                    placeholder="홍길동"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-muted-foreground">이메일 *</label>
-                  <Input
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="mt-2 h-11 bg-background"
-                    placeholder="name@company.com"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-muted-foreground">회사명</label>
-                  <Input
-                    value={form.company}
-                    onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="mt-2 h-11 bg-background"
-                    placeholder="회사명을 입력해 주세요"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-muted-foreground">문의 내용 *</label>
-                  <Textarea
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value.slice(0, 500) })
-                    }
-                    className="mt-2 min-h-32 bg-background"
-                    placeholder="문의하실 내용을 입력해 주세요"
-                  />
-                  <div className="mt-1 text-right text-xs text-muted-foreground">
-                    {form.message.length}/500자
+              <div className="absolute right-0 top-0 h-32 w-32 -translate-y-12 translate-x-12 rounded-full bg-primary/30 blur-2xl" />
+              <div className="relative">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Send className="h-4 w-4" />
                   </div>
+                  <h3 className="text-xl font-semibold">문의 양식</h3>
                 </div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="h-12 w-full rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-glow)] hover:bg-primary/90"
-                >
-                  문의하기 <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+
+                <div className="mt-8 grid gap-5">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label className="text-xs uppercase tracking-wider text-background/60">이름 *</label>
+                      <Input
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                        placeholder="홍길동"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs uppercase tracking-wider text-background/60">이메일 *</label>
+                      <Input
+                        type="email"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                        placeholder="name@company.com"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-xs uppercase tracking-wider text-background/60">회사명</label>
+                    <Input
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                      className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                      placeholder="회사명을 입력해 주세요"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs uppercase tracking-wider text-background/60">문의 내용 *</label>
+                    <Textarea
+                      value={form.message}
+                      onChange={(e) =>
+                        setForm({ ...form, message: e.target.value.slice(0, 500) })
+                      }
+                      className="mt-2 min-h-32 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                      placeholder="문의하실 내용을 입력해 주세요"
+                    />
+                    <div className="mt-1 text-right text-xs text-background/50">
+                      {form.message.length}/500자
+                    </div>
+                  </div>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="h-12 w-full rounded-full bg-primary-glow text-foreground shadow-[var(--shadow-glow)] hover:bg-primary-glow/90"
+                  >
+                    문의 보내기 <Send className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </form>
           </div>
