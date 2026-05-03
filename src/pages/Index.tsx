@@ -326,7 +326,7 @@ const Index = () => {
           }}
         />
 
-        <div className="relative mx-auto max-w-5xl px-6">
+        <div className="relative mx-auto max-w-6xl px-6">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs tracking-widest text-background/80 backdrop-blur">
               <MessageSquare className="h-3.5 w-3.5" /> Contact Us
