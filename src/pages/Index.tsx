@@ -401,13 +401,13 @@ const Index = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-xs uppercase tracking-wider text-background/60">이메일 *</label>
+                      <label className="text-xs uppercase tracking-wider text-background/60">연락처 *</label>
                       <Input
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                        placeholder="name@company.com"
+                        placeholder="010-1234-5678"
                       />
                     </div>
                   </div>
