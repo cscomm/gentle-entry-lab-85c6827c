@@ -6,7 +6,7 @@ import { productCatalog } from "@/data/products";
 const navItems = [
   { en: "Home", ko: "홈", href: "/#home" },
   { en: "Mineral Product", ko: "제품", href: "/#products", dropdown: true },
-  { en: "About", ko: "회사소개", href: "/#about" },
+  { en: "About", ko: "회사소개", href: "/about" },
   { en: "Applications", ko: "응용분야", href: "/#applications" },
   { en: "Contact", ko: "문의하기", href: "/#contact" },
 ];
