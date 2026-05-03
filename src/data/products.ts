@@ -1,8 +1,11 @@
 import gradeA from "@/assets/grade-a-silica.png";
 import gradeADetail from "@/assets/grade-a-detail.png";
 import gradeB from "@/assets/grade-b-silica.png";
+import gradeBDetail from "@/assets/grade-b-detail.png";
 import gradeC from "@/assets/grade-c-silica.png";
+import gradeCDetail from "@/assets/grade-c-detail.png";
 import pProcess from "@/assets/p-process.jpg";
+import hpqDetail from "@/assets/hpq-detail.jpg";
 
 export type ProductDetail = {
   slug: string;
@@ -62,6 +65,7 @@ export const productCatalog: ProductDetail[] = [
     description:
       "프리미엄 용융 실리카 B등급은 99.5% 이상의 SiO₂ 순도와 98% 이상의 무정형 구조를 갖춘 고품질 소재입니다. 태양광·전자/반도체·정밀 주조·특수 소재 등 고신뢰성이 요구되는 산업에 폭넓게 공급됩니다.",
     image: gradeB,
+    detailImage: gradeBDetail,
     features: [
       { title: "🔥 우수한 열적 안정성", desc: "98% 이상 무정형 + 열팽창 < 0.8 → 고온 환경 균일 성능 보장" },
       { title: "🧪 철저한 불순물 관리", desc: "Al, Fe 등 ppm 단위 제어 → 화학적 부식 및 변색 방지" },
@@ -91,6 +95,7 @@ export const productCatalog: ProductDetail[] = [
     description:
       "산업용 용융 실리카 C등급은 99% 이상의 SiO₂ 순도와 95% 이상의 무정형 구조를 갖춘 경제형 소재입니다. 건축·코팅·플라스틱·연마 등 광범위한 산업 영역에서 안정적인 성능을 발휘합니다.",
     image: gradeC,
+    detailImage: gradeCDetail,
     features: [
       { title: "🧱 안정적 무정형 구조", desc: "95% 이상 무정형상 → 열적·화학적 안정성 확보" },
       { title: "💰 경제적 원가 구조", desc: "대량 산업용으로 최적화된 가격 경쟁력" },
@@ -117,22 +122,30 @@ export const productCatalog: ProductDetail[] = [
     slug: "high-purity-quartz",
     name: "천연 고순도규석",
     enName: "Natural High-Purity Quartz",
-    tagline: "엄선된 천연 원료에서 출발하는 규석",
+    tagline: "SiO₂ 99.77%, Fe₂O₃ 5ppm, 백색도 L 97.92 — EGS 및 고급 유리의 기준",
     description:
-      "엄격한 광맥 선별과 정제 공정을 거친 천연 고순도 규석은 후속 가공에서 최고의 결과를 보장합니다. SiLiCA의 원료 관리 노하우가 집약된 핵심 소재입니다.",
+      "프리미엄 천연 고순도 쿼츠는 엄격한 광맥 선별과 정제 공정을 거쳐 SiO₂ 99.77%, Fe₂O₃ 5ppm 수준의 초고순도와 L 97.92의 최상급 백색도를 달성합니다. EGS·인조대리석, 고급 유리, 전자재료, 정밀 주조, 나노 가공 등 부가가치가 높은 산업의 기초 소재로 사용됩니다.",
     image: pProcess,
+    detailImage: hpqDetail,
     features: [
-      { title: "엄선된 광원", desc: "고품질 광맥에서만 선별 채광" },
-      { title: "낮은 불순물", desc: "Fe, Al, Ti 등 불순물 최소화" },
-      { title: "안정 공급", desc: "장기 계약 기반의 안정적 공급망" },
+      { title: "🧱 압도적 순도", desc: "SiO₂ 99.773% — EGS·특수 유리·전자재료 기초 소재로 적합" },
+      { title: "🧼 초저 철분", desc: "Fe₂O₃ 5ppm — 황변 없이 투명도 및 백색도 핵심 유지" },
+      { title: "⚡ 우수한 절연 성능", desc: "EC 2.12 µs/cm — 전자재료 충진재(Filler) 신뢰성 확보" },
+      { title: "✨ 최상급 백색도", desc: "L 97.92 — 고급 인조대리석·건축 내외장재 최적" },
+      { title: "📐 균일 입도", desc: "1~10mm 균일 입도로 후속 공정 효율 극대화" },
+      { title: "🧪 중성 안정", desc: "pH 6.73 — 다양한 화학 공정에 적용 가능" },
     ],
     specs: [
-      { label: "SiO₂ 함량", value: "≥ 99.5%" },
-      { label: "Fe₂O₃", value: "≤ 50 ppm" },
-      { label: "크기", value: "20 ~ 150 mm" },
-      { label: "외관", value: "백색 / 투명 결정" },
+      { label: "SiO₂ (이산화규소)", value: "99.773%", note: "초고순도" },
+      { label: "Fe₂O₃ (산화철)", value: "5 ppm", note: "극저 철분 (핵심)" },
+      { label: "TiO₂ (산화타이타늄)", value: "9 ppm", note: "미량" },
+      { label: "Al₂O₃ (산화알루미늄)", value: "1053 ppm", note: "일반 수준" },
+      { label: "백색도 (Whiteness L)", value: "97.92", note: "최상급 백색도" },
+      { label: "전기전도도 (E.C)", value: "2.12 µs/cm", note: "절연성 우수" },
+      { label: "pH (수소이온농도)", value: "6.73", note: "중성 안정" },
+      { label: "입도 (Grain Size)", value: "1 ~ 10 mm", note: "균일 입도" },
     ],
-    applications: ["용융 원료", "유리·세라믹 원료", "고순도 가공 소재"],
+    applications: ["EGS / 인조대리석", "고급 유리", "전자재료", "정밀 주조", "나노 가공"],
   },
 ];
 

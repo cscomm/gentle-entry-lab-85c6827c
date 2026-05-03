@@ -5,9 +5,9 @@ import { productCatalog } from "@/data/products";
 
 const navItems = [
   { en: "Home", ko: "홈", href: "/#home" },
-  { en: "Mineral Product", ko: "제품", href: "/#products", dropdown: true },
+  { en: "Mineral Product", ko: "제품", href: "/#products", dropdown: "products" as const },
   { en: "About", ko: "회사소개", href: "/about" },
-  { en: "Applications", ko: "응용분야", href: "/#applications" },
+  { en: "Applications", ko: "응용분야", href: "/#applications", dropdown: "applications" as const },
   { en: "Contact", ko: "문의하기", href: "/#contact" },
 ];
 
@@ -57,14 +57,13 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
           </span>
         </Link>
         <nav className="hidden items-center gap-10 md:flex">
-          {navItems.map((item) => (
-            <div key={item.en} className="group relative">
-              <a
-                href={item.href}
-                className={`relative inline-flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors duration-500 hover:text-primary-glow ${
-                  scrolled ? "text-foreground/85" : "text-white/95 [text-shadow:_0_1px_2px_rgb(0_0_0_/_45%)]"
-                }`}
-              >
+          {navItems.map((item) => {
+            const isInternal = item.href.startsWith("/") && !item.href.includes("#");
+            const linkClass = `relative inline-flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors duration-500 hover:text-primary-glow ${
+              scrolled ? "text-foreground/85" : "text-white/95 [text-shadow:_0_1px_2px_rgb(0_0_0_/_45%)]"
+            }`;
+            const inner = (
+              <>
                 <span className="relative inline-block">
                   <span className="block transition-opacity duration-200 group-hover:opacity-0">
                     {item.en}
@@ -74,26 +73,38 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                   </span>
                 </span>
                 {item.dropdown && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
-              </a>
+              </>
+            );
 
-              {item.dropdown && (
-                <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                  <div className="overflow-hidden rounded-xl border border-border bg-background/95 shadow-xl backdrop-blur-md">
-                    {productCatalog.map((p) => (
-                      <Link
-                        key={p.slug}
-                        to={`/products/${p.slug}`}
-                        className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition last:border-0 hover:bg-secondary hover:text-primary-glow"
-                      >
-                        <div className="font-semibold">{p.name}</div>
-                        <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
-                      </Link>
-                    ))}
+            return (
+              <div key={item.en} className="group relative">
+                {isInternal ? (
+                  <Link to={item.href} className={linkClass}>{inner}</Link>
+                ) : (
+                  <a href={item.href} className={linkClass}>{inner}</a>
+                )}
+
+                {item.dropdown && (
+                  <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-xl border border-border bg-background/95 shadow-xl backdrop-blur-md">
+                      {productCatalog.map((p) => (
+                        <Link
+                          key={p.slug}
+                          to={item.dropdown === "applications" ? `/products/${p.slug}#applications` : `/products/${p.slug}`}
+                          className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition last:border-0 hover:bg-secondary hover:text-primary-glow"
+                        >
+                          <div className="font-semibold">
+                            {item.dropdown === "applications" ? `${p.name} · 적용분야` : p.name}
+                          </div>
+                          <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            );
+          })}
         </nav>
       </div>
     </header>

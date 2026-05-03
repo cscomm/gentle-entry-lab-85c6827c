@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProductBySlug, productCatalog } from "@/data/products";
@@ -9,6 +10,11 @@ import aDisplay from "@/assets/a-display.jpg";
 import aAero from "@/assets/a-aero.jpg";
 import aMedical from "@/assets/a-medical.jpg";
 import aEnergy from "@/assets/a-energy.jpg";
+import hpqEgs from "@/assets/hpq-egs.jpg";
+import hpqGlass from "@/assets/hpq-glass.jpg";
+import hpqElec from "@/assets/hpq-electronic.jpg";
+import hpqCasting from "@/assets/hpq-casting.jpg";
+import hpqNano from "@/assets/hpq-nano.jpg";
 
 const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
   "반도체": {
@@ -46,11 +52,27 @@ const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
   "플라스틱/고무": { items: ["범용 플라스틱 보강재", "내열 실리콘 충진재", "접착제 증점제"] },
   "연마 및 내마모재": { items: ["샌드블라스트 연마제", "연마 패드 및 휠", "내마모 코팅"] },
   "기타 산업용": { items: ["필터 미디어", "내열 실란트", "주물사 대체재"] },
+  // Natural HPQ
+  "EGS / 인조대리석": { img: hpqEgs, items: ["고급 주방 상판", "호텔 인테리어", "건축 내외장재", "변색 없는 백색 대리석"] },
+  "고급 유리": { img: hpqGlass, items: ["태양광 패널용 유리", "광학 렌즈 원료", "고투명 특수 유리"] },
+  "전자재료": { img: hpqElec, items: ["절연 필러", "에폭시 수지 배합재", "저전압 절연 소재"] },
+  
+  "나노 가공": { img: hpqNano, items: ["나노 실리카 원료", "실리카 파우더", "고부가 화학 제품"] },
 };
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = slug ? getProductBySlug(slug) : undefined;
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [location.hash, slug]);
 
   if (!product) {
     return (
@@ -171,7 +193,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Applications — visual cards with images */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+      <section id="applications" className="mx-auto max-w-7xl px-6 py-20 md:py-28 scroll-mt-24">
         <div className="text-center">
           <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
             APPLICATIONS
