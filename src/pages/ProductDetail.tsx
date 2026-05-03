@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProductBySlug, productCatalog } from "@/data/products";
@@ -62,6 +63,16 @@ const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = slug ? getProductBySlug(slug) : undefined;
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [location.hash, slug]);
 
   if (!product) {
     return (
