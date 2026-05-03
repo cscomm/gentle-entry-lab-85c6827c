@@ -5,9 +5,9 @@ import { productCatalog } from "@/data/products";
 
 const navItems = [
   { en: "Home", ko: "홈", href: "/#home" },
-  { en: "Mineral Product", ko: "제품", href: "/#products", dropdown: true },
+  { en: "Mineral Product", ko: "제품", href: "/#products", dropdown: "products" as const },
   { en: "About", ko: "회사소개", href: "/about" },
-  { en: "Applications", ko: "응용분야", href: "/#applications" },
+  { en: "Applications", ko: "응용분야", href: "/#applications", dropdown: "applications" as const },
   { en: "Contact", ko: "문의하기", href: "/#contact" },
 ];
 
@@ -90,10 +90,12 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                       {productCatalog.map((p) => (
                         <Link
                           key={p.slug}
-                          to={`/products/${p.slug}`}
+                          to={item.dropdown === "applications" ? `/products/${p.slug}#applications` : `/products/${p.slug}`}
                           className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition last:border-0 hover:bg-secondary hover:text-primary-glow"
                         >
-                          <div className="font-semibold">{p.name}</div>
+                          <div className="font-semibold">
+                            {item.dropdown === "applications" ? `${p.name} · 적용분야` : p.name}
+                          </div>
                           <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
                         </Link>
                       ))}
