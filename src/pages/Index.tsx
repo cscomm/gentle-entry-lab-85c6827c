@@ -28,13 +28,13 @@ const navItems = [
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories = ["전체 제품", "A등급 용융 규석", "B등급 용융 규석", "C등급 용융 규석", "고순도규석"];
+const productCategories = ["전체 제품", "A등급 용융 규석", "B등급 용융 규석", "C등급 용융 규석", "천연 고순도규석"];
 
 const products = [
   { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", cat: "A등급 용융 규석" },
   { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융 규석", desc: "정밀 주조 및 첨단 산업용 고품질 용융 규석", cat: "B등급 용융 규석" },
   { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융 규석", desc: "산업용 일반 공정에 최적화된 경제형 용융 규석", cat: "C등급 용융 규석" },
-  { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석", cat: "고순도규석" },
+  { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석", cat: "천연 고순도규석" },
 ];
 
 const applications = [
