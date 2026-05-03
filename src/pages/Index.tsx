@@ -437,7 +437,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-secondary/40">
         <div className="mx-auto max-w-7xl px-6 py-14">
-          <div className="grid gap-10 md:grid-cols-[1.1fr_1fr_1fr]">
+          <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+            {/* Brand + Office */}
             <div>
               <div className="text-2xl font-bold tracking-tight">
                 Si<span className="text-primary-glow">Li</span>CA
@@ -453,18 +454,38 @@ const Index = () => {
                 </div>
                 <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
                   <li>경기도 화성시 남양읍 수작이길 55</li>
-                  <li className="flex items-center gap-1.5"><Phone className="h-3 w-3 text-primary-glow" /> 031-000-0000</li>
-                  <li className="flex items-center gap-1.5"><Mail className="h-3 w-3 text-primary-glow" /> info@silica.co.kr</li>
+                  <li className="flex items-center gap-1.5">
+                    <Phone className="h-3 w-3 text-primary-glow" /> 031-000-0000
+                  </li>
+                  <li>
+                    <a
+                      href="mailto:info@silica.co.kr"
+                      className="inline-flex items-center gap-1.5 hover:text-primary-glow"
+                    >
+                      <Mail className="h-3 w-3 text-primary-glow" /> info@silica.co.kr
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
 
+            {/* Sitemap + Products */}
             <div>
               <h4 className="text-sm font-semibold text-foreground">사이트맵</h4>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li><a href="/#home" className="hover:text-primary-glow">홈</a></li>
                 <li><a href="/#products" className="hover:text-primary-glow">제품</a></li>
-                <li><Link to="/about" className="hover:text-primary-glow">회사소개</Link></li>
+                <li>
+                  <Link to="/about" className="hover:text-primary-glow">회사소개</Link>
+                  <ul className="mt-2 space-y-1.5 pl-3 text-xs">
+                    <li>
+                      <Link to="/terms" className="hover:text-primary-glow">· 이용약관</Link>
+                    </li>
+                    <li>
+                      <Link to="/privacy" className="hover:text-primary-glow">· 개인정보처리방침</Link>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="/#contact" className="hover:text-primary-glow">문의하기</a></li>
               </ul>
 
@@ -478,35 +499,61 @@ const Index = () => {
               </ul>
             </div>
 
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-border bg-card p-5">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <MapPin className="h-3.5 w-3.5" />
-                  </span>
-                  <h4 className="text-sm font-semibold text-foreground">본사</h4>
+            {/* Global locations — single combined card */}
+            <div>
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-foreground to-foreground/90 p-6 text-background shadow-sm">
+                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/30 blur-2xl" />
+                <div className="pointer-events-none absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-primary-glow/20 blur-2xl" />
+
+                <div className="relative">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/20 text-primary-glow">
+                      <MapPin className="h-3.5 w-3.5" />
+                    </span>
+                    <h4 className="text-sm font-semibold tracking-wide text-background">Global Locations</h4>
+                  </div>
+
+                  <div className="mt-5 space-y-5">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold tracking-widest text-primary-foreground">
+                          KR
+                        </span>
+                        <span className="text-xs font-semibold text-background">본사</span>
+                      </div>
+                      <p className="mt-2 text-xs leading-relaxed text-background/75">
+                        전라북도 진안군 동계로 328<br />
+                        <span className="text-background/55">주식회사 비에이알</span>
+                      </p>
+                    </div>
+
+                    <div className="h-px w-full bg-background/10" />
+
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full bg-primary-glow/90 px-2 py-0.5 text-[10px] font-semibold tracking-widest text-foreground">
+                          CN
+                        </span>
+                        <span className="text-xs font-semibold text-background">중국공장</span>
+                      </div>
+                      <p className="mt-2 text-xs leading-relaxed text-background/75">
+                        江苏徐州新沂经济开发区北京西路89号<br />
+                        <span className="text-background/55">SDR Quartz Material Technology Co., Ltd.</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
-                  <li>전라북도 진안군 동계로 328</li>
-                  <li>주식회사 비에이알</li>
-                </ul>
-              </div>
-              <div className="rounded-2xl border border-border bg-card p-5">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <MapPin className="h-3.5 w-3.5" />
-                  </span>
-                  <h4 className="text-sm font-semibold text-foreground">중국공장</h4>
-                </div>
-                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
-                  <li>江苏徐州新沂经济开发区北京西路89号</li>
-                  <li>SDR Quartz Material Technology Co., Ltd.</li>
-                </ul>
               </div>
             </div>
           </div>
-          <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-            © 2023 SiLiCA. All rights reserved.
+
+          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row">
+            <div>© 2023 SiLiCA. All rights reserved.</div>
+            <div className="flex items-center gap-4">
+              <Link to="/terms" className="hover:text-primary-glow">이용약관</Link>
+              <span className="opacity-30">|</span>
+              <Link to="/privacy" className="hover:text-primary-glow">개인정보처리방침</Link>
+            </div>
           </div>
         </div>
       </footer>
