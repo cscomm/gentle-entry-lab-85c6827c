@@ -378,6 +378,8 @@ const Index = () => {
             <input type="hidden" name="_subject" value="[홈페이지 문의] 신규 문의 도착" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://gentle-entry-lab.lovable.app/?sent=1" />
+            <input type="text" name="_honey" style={{ display: "none" }} />
             <div className="absolute right-0 top-0 h-40 w-40 -translate-y-16 translate-x-16 rounded-full bg-primary/30 blur-2xl" />
             <div className="absolute bottom-0 left-0 h-40 w-40 translate-y-16 -translate-x-16 rounded-full bg-primary-glow/20 blur-2xl" />
             <div className="relative">
