@@ -36,14 +36,14 @@ const navItems = [
 const productCategories = ["전체 제품", "용융규석", "용융규사", "용융규석미세분말", "고순도규석"];
 
 const products = [
-  { img: pBlockA, slug: "fused-silica-block", title: "용융규석", desc: "최고급 융편석영 블록 — 반도체 및 고급 광학 용도에 적합", cat: "용융규석" },
+  { img: pBlockA, slug: "fused-silica-block", title: "용융규석", desc: "최고급 융편석영 블록 — 전자 및 고급 광학 용도에 적합", cat: "용융규석" },
   { img: pSandA, slug: "fused-silica-sand", title: "용융규사", desc: "정밀 주조 및 첨단 산업용 고품질 용융규사", cat: "용융규사" },
   { img: pPowder, slug: "fused-silica-powder", title: "용융규석미세분말", desc: "고분산 융편석영 미세 분말, 전자 소재 및 코팅 용도에 적합", cat: "용융규석미세분말" },
-  { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 프리미엄 고순도 규석 원료", cat: "고순도규석" },
+  { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석 원료", cat: "고순도규석" },
 ];
 
 const applications = [
-  { img: aSemi, title: "반도체 산업", desc: "반도체 웨이퍼 제조용 고순도 석영 소재" },
+  { img: aSemi, title: "전자 산업", desc: "전자 웨이퍼 제조용 고순도 석영 소재" },
   { img: aOptic, title: "광학 산업", desc: "광학 렌즈 및 정밀 광학 부품용 석영 소재" },
   { img: aSolar, title: "태양광 산업", desc: "태양광 패널 생산에 적합한 석영 소재" },
   { img: aElec, title: "전자 소재", desc: "전자 소재 및 패키지 제품용 석영 소재" },
@@ -58,8 +58,7 @@ const news = [
 const Index = () => {
   const { toast } = useToast();
   const [activeCat, setActiveCat] = useState("전체 제품");
-  const [form, setForm] = useState({ name: "", phone: "", company: "", message: "" });
-  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", message: "" });
 
   const slides = [
     {
@@ -89,19 +88,14 @@ const Index = () => {
   const filteredProducts =
     activeCat === "전체 제품" ? products : products.filter((p) => p.cat === activeCat);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (!form.name || !form.phone || !form.message) {
+      e.preventDefault();
       toast({ title: "필수 항목을 입력해 주세요", variant: "destructive" });
       return;
     }
-    const subject = encodeURIComponent(`[홈페이지 문의] ${form.name}`);
-    const body = encodeURIComponent(
-      `이름: ${form.name}\n연락처: ${form.phone}\n회사명: ${form.company}\n\n문의 내용:\n${form.message}`
-    );
-    window.location.href = `mailto:cscomm@naver.com?subject=${subject}&body=${body}`;
-    toast({ title: "문의가 접수되었습니다", description: "빠르게 답변드리겠습니다." });
-    setForm({ name: "", phone: "", company: "", message: "" });
+    // FormSubmit will handle the POST and redirect; show toast optimistically
+    toast({ title: "문의가 전송되었습니다", description: "빠른 시일 내에 답변드리겠습니다." });
   };
 
   return (
@@ -276,7 +270,7 @@ const Index = () => {
             응용 분야
           </span>
           <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-            반도체부터 광학까지<br />다양한 산업에 공급합니다
+            전자부터 광학까지<br />다양한 산업에 공급합니다
           </h2>
         </div>
 
@@ -342,8 +336,8 @@ const Index = () => {
                   <MessageSquare className="h-3.5 w-3.5" /> Contact Us
                 </span>
                 <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
-                  프로젝트 문의<br />
-                  <span className="text-primary-glow">언제든 연락 주세요.</span>
+                  프로젝트의 시작,<br />
+                  <span className="text-primary-glow">Silica가 함께 합니다.</span>
                 </h2>
                 <p className="mt-6 max-w-md text-background/70">
                   최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다.
@@ -378,8 +372,13 @@ const Index = () => {
             {/* Right: form panel */}
             <form
               onSubmit={handleSubmit}
+              action="https://formsubmit.co/cscomm@naver.com"
+              method="POST"
               className="relative overflow-hidden rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-xl md:p-10"
             >
+              <input type="hidden" name="_subject" value="[홈페이지 문의] 신규 문의 도착" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
               <div className="absolute right-0 top-0 h-32 w-32 -translate-y-12 translate-x-12 rounded-full bg-primary/30 blur-2xl" />
               <div className="relative">
                 <div className="flex items-center gap-3">
@@ -394,6 +393,7 @@ const Index = () => {
                     <div>
                       <label className="text-xs uppercase tracking-wider text-background/60">이름 *</label>
                       <Input
+                        name="이름"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
@@ -403,6 +403,7 @@ const Index = () => {
                     <div>
                       <label className="text-xs uppercase tracking-wider text-background/60">연락처 *</label>
                       <Input
+                        name="연락처"
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -411,18 +412,33 @@ const Index = () => {
                       />
                     </div>
                   </div>
-                  <div>
-                    <label className="text-xs uppercase tracking-wider text-background/60">회사명</label>
-                    <Input
-                      value={form.company}
-                      onChange={(e) => setForm({ ...form, company: e.target.value })}
-                      className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                      placeholder="회사명을 입력해 주세요"
-                    />
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label className="text-xs uppercase tracking-wider text-background/60">이메일</label>
+                      <Input
+                        name="이메일"
+                        type="email"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                        placeholder="name@example.com"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs uppercase tracking-wider text-background/60">회사명</label>
+                      <Input
+                        name="회사명"
+                        value={form.company}
+                        onChange={(e) => setForm({ ...form, company: e.target.value })}
+                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                        placeholder="회사명을 입력해 주세요"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label className="text-xs uppercase tracking-wider text-background/60">문의 내용 *</label>
                     <Textarea
+                      name="문의내용"
                       value={form.message}
                       onChange={(e) =>
                         setForm({ ...form, message: e.target.value.slice(0, 500) })
@@ -457,7 +473,7 @@ const Index = () => {
                 Si<span className="text-primary-glow">Li</span>CA
               </div>
               <p className="mt-3 text-sm text-muted-foreground">
-                국내 유일의 고품위 규석 광산을<br />직접 개발하는 규석 전문 기업
+                규석전문기업
               </p>
             </div>
             <div>
@@ -489,7 +505,7 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} SiLiCA. All rights reserved.
+            © 2023 SiLiCA. All rights reserved.
           </div>
         </div>
       </footer>

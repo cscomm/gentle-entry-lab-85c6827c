@@ -21,9 +21,9 @@ export const productCatalog: ProductDetail[] = [
     slug: "fused-silica-block",
     name: "용융규석",
     enName: "Fused Silica Block",
-    tagline: "최고급 융편석영 블록 — 반도체 및 정밀 광학 소재의 기준",
+    tagline: "최고급 융편석영 블록 — 전자 및 정밀 광학 소재의 기준",
     description:
-      "고온 용융 공정을 통해 제조된 용융규석 블록은 99.9% 이상의 고순도 SiO₂를 포함하며, 우수한 열적 안정성과 화학적 내구성을 제공합니다. 반도체, 광학, 첨단 산업의 핵심 소재로 사용됩니다.",
+      "고온 용융 공정을 통해 제조된 용융규석 블록은 99.9% 이상의 고순도 SiO₂를 포함하며, 우수한 열적 안정성과 화학적 내구성을 제공합니다. 전자, 광학, 첨단 산업의 핵심 소재로 사용됩니다.",
     image: pBlockA,
     features: [
       { title: "고순도", desc: "SiO₂ ≥ 99.9% 의 안정적 화학 조성" },
@@ -36,7 +36,7 @@ export const productCatalog: ProductDetail[] = [
       { label: "연화점", value: "1650°C" },
       { label: "형상", value: "블록 / 커스텀 가공" },
     ],
-    applications: ["반도체 공정 부재", "광학 렌즈 원료", "고온 내화 소재"],
+    applications: ["전자 공정 부재", "광학 렌즈 원료", "고온 내화 소재"],
   },
   {
     slug: "fused-silica-sand",
@@ -78,13 +78,13 @@ export const productCatalog: ProductDetail[] = [
       { label: "비표면적", value: "1 ~ 5 m²/g" },
       { label: "외관", value: "백색 분말" },
     ],
-    applications: ["반도체 EMC", "고기능 코팅", "복합 소재 충진재"],
+    applications: ["전자 EMC", "고기능 코팅", "복합 소재 충진재"],
   },
   {
     slug: "high-purity-quartz",
     name: "고순도규석",
     enName: "High-Purity Quartz",
-    tagline: "엄선된 천연 원료에서 출발하는 프리미엄 규석",
+    tagline: "엄선된 천연 원료에서 출발하는 규석",
     description:
       "엄격한 광맥 선별과 정제 공정을 거친 고순도 규석은 후속 가공에서 최고의 결과를 보장합니다. SiLiCA의 원료 관리 노하우가 집약된 핵심 소재입니다.",
     image: pProcess,
