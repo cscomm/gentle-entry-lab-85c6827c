@@ -15,6 +15,11 @@ import hpqGlass from "@/assets/hpq-glass.jpg";
 import hpqElec from "@/assets/hpq-electronic.jpg";
 import hpqCasting from "@/assets/hpq-casting.jpg";
 import hpqNano from "@/assets/hpq-nano.jpg";
+import cConstruction from "@/assets/c-construction.jpg";
+import cPaint from "@/assets/c-paint.jpg";
+import cPlastic from "@/assets/c-plastic.jpg";
+import cAbrasive from "@/assets/c-abrasive.jpg";
+import cIndustrial from "@/assets/c-industrial.jpg";
 
 const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
   "반도체": {
@@ -47,11 +52,11 @@ const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
   "정밀 주조": { img: aAero, items: ["항공우주 부품 금형", "정밀 기계 부품 주조", "고내열 세라믹 부품"] },
   "특수 소재": { img: aDisplay, items: ["고사양 내열 코팅", "기능성 고분자 복합재", "전자재료 절연 필름"] },
   // Grade C
-  "건축 및 건자재": { items: ["고강도 시멘트 첨가제", "내화 벽돌 및 패널", "바닥재 충진재"] },
-  "페인트 및 코팅": { items: ["내스크래치 도료", "방청 프라이머", "무광 코팅 필러"] },
-  "플라스틱/고무": { items: ["범용 플라스틱 보강재", "내열 실리콘 충진재", "접착제 증점제"] },
-  "연마 및 내마모재": { items: ["샌드블라스트 연마제", "연마 패드 및 휠", "내마모 코팅"] },
-  "기타 산업용": { items: ["필터 미디어", "내열 실란트", "주물사 대체재"] },
+  "건축 및 건자재": { img: cConstruction, items: ["고강도 시멘트 첨가제", "내화 벽돌 및 패널", "바닥재 충진재"] },
+  "페인트 및 코팅": { img: cPaint, items: ["내스크래치 도료", "방청 프라이머", "무광 코팅 필러"] },
+  "플라스틱/고무": { img: cPlastic, items: ["범용 플라스틱 보강재", "내열 실리콘 충진재", "접착제 증점제"] },
+  "연마 및 내마모재": { img: cAbrasive, items: ["샌드블라스트 연마제", "연마 패드 및 휠", "내마모 코팅"] },
+  "기타 산업용": { img: cIndustrial, items: ["필터 미디어", "내열 실란트", "주물사 대체재"] },
   // Natural HPQ
   "EGS / 인조대리석": { img: hpqEgs, items: ["고급 주방 상판", "호텔 인테리어", "건축 내외장재", "변색 없는 백색 대리석"] },
   "고급 유리": { img: hpqGlass, items: ["태양광 패널용 유리", "광학 렌즈 원료", "고투명 특수 유리"] },

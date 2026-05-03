@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +11,7 @@ import SiteHeader from "@/components/SiteHeader";
 import heroImage from "@/assets/hero-quartz.jpg";
 import heroNanoImage from "@/assets/hero-nanopowder.jpg";
 import facility from "@/assets/facility.jpg";
-import gradeA from "@/assets/grade-a-silica.png";
+import gradeA from "@/assets/grade-a-hero.png";
 import gradeB from "@/assets/grade-b-silica.png";
 import gradeC from "@/assets/grade-c-silica.png";
 import pProcess from "@/assets/p-process.jpg";
@@ -28,7 +28,13 @@ const navItems = [
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories = ["전체 제품", "A등급 용융 규석", "B등급 용융 규석", "C등급 용융 규석", "천연 고순도규석"];
+const productCategories: { label: string; slug?: string }[] = [
+  { label: "전체 제품" },
+  { label: "A등급 용융 규석", slug: "fused-silica-block" },
+  { label: "B등급 용융 규석", slug: "fused-silica-sand" },
+  { label: "C등급 용융 규석", slug: "fused-silica-powder" },
+  { label: "천연 고순도규석", slug: "high-purity-quartz" },
+];
 
 const products = [
   { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", cat: "A등급 용융 규석" },
@@ -80,6 +86,19 @@ const Index = () => {
     const t = setInterval(nextSlide, 6000);
     return () => clearInterval(t);
   }, []);
+
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [location.pathname, location.hash, location.key]);
 
   const filteredProducts =
     activeCat === "전체 제품" ? products : products.filter((p) => p.cat === activeCat);
@@ -242,19 +261,26 @@ const Index = () => {
           </div>
 
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {productCategories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCat(cat)}
-                className={`rounded-full border px-5 py-2 text-sm transition ${
-                  activeCat === cat
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {productCategories.map((cat) => {
+              const isActive = activeCat === cat.label;
+              const className = `rounded-full border px-5 py-2 text-sm transition ${
+                isActive
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground"
+              }`;
+              if (cat.slug) {
+                return (
+                  <Link key={cat.label} to={`/products/${cat.slug}`} className={className}>
+                    {cat.label}
+                  </Link>
+                );
+              }
+              return (
+                <button key={cat.label} onClick={() => setActiveCat(cat.label)} className={className}>
+                  {cat.label}
+                </button>
+              );
+            })}
           </div>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -334,7 +360,7 @@ const Index = () => {
       {/* Contact — refined dark panel */}
       <section
         id="contact"
-        className="relative overflow-hidden bg-foreground py-24 text-background md:py-32"
+        className="relative overflow-hidden scroll-mt-24 bg-foreground py-24 text-background md:py-32"
       >
         {/* decorative glows */}
         <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
