@@ -336,8 +336,8 @@ const Index = () => {
                   <MessageSquare className="h-3.5 w-3.5" /> Contact Us
                 </span>
                 <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
-                  프로젝트 문의<br />
-                  <span className="text-primary-glow">언제든 연락 주세요.</span>
+                  프로젝트의 시작,<br />
+                  <span className="text-primary-glow">Silica가 함께 합니다.</span>
                 </h2>
                 <p className="mt-6 max-w-md text-background/70">
                   최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다.
