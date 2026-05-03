@@ -39,7 +39,7 @@ const products = [
   { img: pBlockA, slug: "fused-silica-block", title: "용융규석", desc: "최고급 융편석영 블록 — 전자 및 고급 광학 용도에 적합", cat: "용융규석" },
   { img: pSandA, slug: "fused-silica-sand", title: "용융규사", desc: "정밀 주조 및 첨단 산업용 고품질 용융규사", cat: "용융규사" },
   { img: pPowder, slug: "fused-silica-powder", title: "용융규석미세분말", desc: "고분산 융편석영 미세 분말, 전자 소재 및 코팅 용도에 적합", cat: "용융규석미세분말" },
-  { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석 원료", cat: "고순도규석" },
+  { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석", cat: "고순도규석" },
 ];
 
 const applications = [
@@ -309,7 +309,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact — distinctive dark panel */}
+      {/* Contact — refined dark panel */}
       <section
         id="contact"
         className="relative overflow-hidden bg-foreground py-24 text-background md:py-32"
@@ -317,7 +317,6 @@ const Index = () => {
         {/* decorative glows */}
         <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-primary-glow/20 blur-3xl" />
-        {/* subtle grid overlay */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
           style={{
@@ -327,166 +326,149 @@ const Index = () => {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-stretch">
-            {/* Left: heading + info */}
-            <div className="flex flex-col justify-between">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs tracking-widest text-background/80 backdrop-blur">
-                  <MessageSquare className="h-3.5 w-3.5" /> Contact Us
-                </span>
-                <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
-                  프로젝트의 시작,<br />
-                  <span className="text-primary-glow">Silica가 함께 합니다.</span>
-                </h2>
-                <p className="mt-6 max-w-md text-background/70">
-                  최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다.
-                </p>
+        <div className="relative mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs tracking-widest text-background/80 backdrop-blur">
+              <MessageSquare className="h-3.5 w-3.5" /> Contact Us
+            </span>
+            <h2 className="mt-6 text-3xl font-bold leading-tight md:text-5xl">
+              프로젝트의 시작,<br />
+              <span className="text-primary-glow">Silica가 함께 합니다.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-background/70">
+              최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다.
+            </p>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            action="https://formsubmit.co/cscomm@naver.com"
+            method="POST"
+            className="relative mx-auto mt-14 overflow-hidden rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-xl md:p-12"
+          >
+            <input type="hidden" name="_subject" value="[홈페이지 문의] 신규 문의 도착" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <div className="absolute right-0 top-0 h-40 w-40 -translate-y-16 translate-x-16 rounded-full bg-primary/30 blur-2xl" />
+            <div className="absolute bottom-0 left-0 h-40 w-40 translate-y-16 -translate-x-16 rounded-full bg-primary-glow/20 blur-2xl" />
+            <div className="relative">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <Send className="h-4 w-4" />
+                </div>
+                <h3 className="text-xl font-semibold">문의 양식</h3>
               </div>
 
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:border-primary-glow/60">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-glow/15 text-primary-glow">
-                    <MapPin className="h-4 w-4" />
-                  </div>
-                  <h3 className="mt-4 text-sm font-semibold">공장 주소</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-background/70">
-                    경기도 화성시 팔탄면<br />고주로 257-58 (18330)
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:border-primary-glow/60">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-glow/15 text-primary-glow">
-                    <Phone className="h-4 w-4" />
-                  </div>
-                  <h3 className="mt-4 text-sm font-semibold">연락처</h3>
-                  <p className="mt-2 flex items-center gap-1.5 text-xs text-background/70">
-                    <Phone className="h-3 w-3" /> 031-000-0000
-                  </p>
-                  <p className="mt-1 flex items-center gap-1.5 text-xs text-background/70">
-                    <Clock className="h-3 w-3" /> 평일 09:00 - 18:00
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: form panel */}
-            <form
-              onSubmit={handleSubmit}
-              action="https://formsubmit.co/cscomm@naver.com"
-              method="POST"
-              className="relative overflow-hidden rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-xl md:p-10"
-            >
-              <input type="hidden" name="_subject" value="[홈페이지 문의] 신규 문의 도착" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-              <div className="absolute right-0 top-0 h-32 w-32 -translate-y-12 translate-x-12 rounded-full bg-primary/30 blur-2xl" />
-              <div className="relative">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <Send className="h-4 w-4" />
-                  </div>
-                  <h3 className="text-xl font-semibold">문의 양식</h3>
-                </div>
-
-                <div className="mt-8 grid gap-5">
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label className="text-xs uppercase tracking-wider text-background/60">이름 *</label>
-                      <Input
-                        name="이름"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                        placeholder="홍길동"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs uppercase tracking-wider text-background/60">연락처 *</label>
-                      <Input
-                        name="연락처"
-                        type="tel"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                        placeholder="010-1234-5678"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label className="text-xs uppercase tracking-wider text-background/60">이메일</label>
-                      <Input
-                        name="이메일"
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                        placeholder="name@example.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs uppercase tracking-wider text-background/60">회사명</label>
-                      <Input
-                        name="회사명"
-                        value={form.company}
-                        onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                        placeholder="회사명을 입력해 주세요"
-                      />
-                    </div>
+              <div className="mt-8 grid gap-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="text-xs uppercase tracking-wider text-background/60">이름 *</label>
+                    <Input
+                      name="이름"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                      placeholder="홍길동"
+                    />
                   </div>
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-background/60">문의 내용 *</label>
-                    <Textarea
-                      name="문의내용"
-                      value={form.message}
-                      onChange={(e) =>
-                        setForm({ ...form, message: e.target.value.slice(0, 500) })
-                      }
-                      className="mt-2 min-h-32 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                      placeholder="문의하실 내용을 입력해 주세요"
+                    <label className="text-xs uppercase tracking-wider text-background/60">연락처 *</label>
+                    <Input
+                      name="연락처"
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                      placeholder="010-1234-5678"
                     />
-                    <div className="mt-1 text-right text-xs text-background/50">
-                      {form.message.length}/500자
-                    </div>
                   </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="h-12 w-full rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-glow)] hover:bg-primary/90"
-                  >
-                    문의 보내기 <Send className="ml-2 h-4 w-4" />
-                  </Button>
                 </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="text-xs uppercase tracking-wider text-background/60">이메일</label>
+                    <Input
+                      name="이메일"
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                      placeholder="name@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs uppercase tracking-wider text-background/60">회사명</label>
+                    <Input
+                      name="회사명"
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                      className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                      placeholder="회사명을 입력해 주세요"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-wider text-background/60">문의 내용 *</label>
+                  <Textarea
+                    name="문의내용"
+                    value={form.message}
+                    onChange={(e) =>
+                      setForm({ ...form, message: e.target.value.slice(0, 500) })
+                    }
+                    className="mt-2 min-h-32 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
+                    placeholder="문의하실 내용을 입력해 주세요"
+                  />
+                  <div className="mt-1 text-right text-xs text-background/50">
+                    {form.message.length}/500자
+                  </div>
+                </div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="h-12 w-full rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-glow)] hover:bg-primary/90"
+                >
+                  문의 보내기 <Send className="ml-2 h-4 w-4" />
+                </Button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-border bg-secondary/40">
         <div className="mx-auto max-w-7xl px-6 py-14">
-          <div className="grid gap-10 md:grid-cols-4">
+          <div className="grid gap-10 md:grid-cols-[1.1fr_1fr_1fr]">
             <div>
               <div className="text-2xl font-bold tracking-tight">
                 Si<span className="text-primary-glow">Li</span>CA
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                규석전문기업
-              </p>
+              <p className="mt-3 text-sm text-muted-foreground">규석전문기업</p>
+
+              <div className="mt-6 rounded-2xl border border-border bg-card p-5">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <MapPin className="h-3.5 w-3.5" />
+                  </span>
+                  <h4 className="text-sm font-semibold text-foreground">사무실</h4>
+                </div>
+                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
+                  <li>경기도 화성시 남양읍 수작이길 55</li>
+                  <li className="flex items-center gap-1.5"><Phone className="h-3 w-3 text-primary-glow" /> 031-000-0000</li>
+                  <li className="flex items-center gap-1.5"><Mail className="h-3 w-3 text-primary-glow" /> info@silica.co.kr</li>
+                </ul>
+              </div>
             </div>
+
             <div>
               <h4 className="text-sm font-semibold text-foreground">사이트맵</h4>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li><a href="#home" className="hover:text-primary-glow">홈</a></li>
-                <li><a href="#products" className="hover:text-primary-glow">제품</a></li>
+                <li><a href="/#home" className="hover:text-primary-glow">홈</a></li>
+                <li><a href="/#products" className="hover:text-primary-glow">제품</a></li>
                 <li><Link to="/about" className="hover:text-primary-glow">회사소개</Link></li>
-                <li><a href="#contact" className="hover:text-primary-glow">문의하기</a></li>
+                <li><a href="/#contact" className="hover:text-primary-glow">문의하기</a></li>
               </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-foreground">제품</h4>
+
+              <h4 className="mt-8 text-sm font-semibold text-foreground">제품</h4>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 {productCatalog.map((p) => (
                   <li key={p.slug}>
@@ -495,13 +477,32 @@ const Index = () => {
                 ))}
               </ul>
             </div>
-            <div>
-              <h4 className="text-sm font-semibold text-foreground">연락처</h4>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 flex-none text-primary-glow" /> 경기도 화성시 팔탄면 고주로 257-58</li>
-                <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary-glow" /> 031-000-0000</li>
-                <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary-glow" /> 평일 09:00 - 18:00</li>
-              </ul>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-border bg-card p-5">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <MapPin className="h-3.5 w-3.5" />
+                  </span>
+                  <h4 className="text-sm font-semibold text-foreground">본사</h4>
+                </div>
+                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
+                  <li>전라북도 진안군 동계로 328</li>
+                  <li>주식회사 비에이알</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-5">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <MapPin className="h-3.5 w-3.5" />
+                  </span>
+                  <h4 className="text-sm font-semibold text-foreground">중국공장</h4>
+                </div>
+                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
+                  <li>江苏徐州新沂经济开发区北京西路89号</li>
+                  <li>SDR Quartz Material Technology Co., Ltd.</li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
