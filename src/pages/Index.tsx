@@ -438,6 +438,7 @@ const Index = () => {
                   <div>
                     <label className="text-xs uppercase tracking-wider text-background/60">문의 내용 *</label>
                     <Textarea
+                      name="문의내용"
                       value={form.message}
                       onChange={(e) =>
                         setForm({ ...form, message: e.target.value.slice(0, 500) })
