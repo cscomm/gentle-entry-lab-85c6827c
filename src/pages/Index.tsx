@@ -58,7 +58,8 @@ const news = [
 const Index = () => {
   const { toast } = useToast();
   const [activeCat, setActiveCat] = useState("전체 제품");
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", company: "", message: "" });
+  const [sending, setSending] = useState(false);
 
   const slides = [
     {
@@ -90,12 +91,17 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
+    if (!form.name || !form.phone || !form.message) {
       toast({ title: "필수 항목을 입력해 주세요", variant: "destructive" });
       return;
     }
+    const subject = encodeURIComponent(`[홈페이지 문의] ${form.name}`);
+    const body = encodeURIComponent(
+      `이름: ${form.name}\n연락처: ${form.phone}\n회사명: ${form.company}\n\n문의 내용:\n${form.message}`
+    );
+    window.location.href = `mailto:cscomm@naver.com?subject=${subject}&body=${body}`;
     toast({ title: "문의가 접수되었습니다", description: "빠르게 답변드리겠습니다." });
-    setForm({ name: "", email: "", company: "", message: "" });
+    setForm({ name: "", phone: "", company: "", message: "" });
   };
 
   return (
@@ -184,13 +190,13 @@ const Index = () => {
               국내 유일의 고품위<br />규석 광산을<br />직접 개발합니다
             </h2>
             <p className="mt-6 text-muted-foreground">
-              당사는 국내에는 현재 유일한 고품위 규석 광산을 직접 개발하여 운영 중이며, 채광 탐사부터 1차 공정을 자체적으로 수행하여 최고 품질의 고품위 석영을 생산하고 있습니다.
+              당사는 국내에는 현재 유일한 고품위 규석 광산을 직접 개발하여 운영 중이며, 탐사부터 채광 후 1차 공정을 자체적으로 수행하여 최고 품질의 고품위 석영을 생산하고 있습니다.
             </p>
             <p className="mt-4 text-muted-foreground">
               원료 선별부터 완제품까지 운영되는 각 단계의 차별화된 품질 관리 시스템을 통해 고객의 높은 기대에 부합하는 제품을 생산하고 있습니다.
             </p>
             <p className="mt-4 text-muted-foreground">
-              용융실리카의 경우 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
+              용융실리카의 현지 공장은 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
             </p>
             <Button
               asChild
@@ -335,12 +341,12 @@ const Index = () => {
                 <span className="inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs tracking-widest text-background/80 backdrop-blur">
                   <MessageSquare className="h-3.5 w-3.5" /> Contact Us
                 </span>
-                <h2 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
-                  프로젝트가 있으신가요?<br />
-                  <span className="text-primary-glow">언제든 문의해 주세요.</span>
+                <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
+                  프로젝트 문의<br />
+                  <span className="text-primary-glow">언제든 연락 주세요.</span>
                 </h2>
                 <p className="mt-6 max-w-md text-background/70">
-                  최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다. 영업일 기준 1일 이내 답변드립니다.
+                  최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다.
                 </p>
               </div>
 
@@ -395,13 +401,13 @@ const Index = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-xs uppercase tracking-wider text-background/60">이메일 *</label>
+                      <label className="text-xs uppercase tracking-wider text-background/60">연락처 *</label>
                       <Input
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         className="mt-2 h-11 border-background/20 bg-background/10 text-background placeholder:text-background/40 focus-visible:border-primary-glow focus-visible:ring-primary-glow/40"
-                        placeholder="name@company.com"
+                        placeholder="010-1234-5678"
                       />
                     </div>
                   </div>
@@ -431,7 +437,7 @@ const Index = () => {
                   <Button
                     type="submit"
                     size="lg"
-                    className="h-12 w-full rounded-full bg-primary-glow text-foreground shadow-[var(--shadow-glow)] hover:bg-primary-glow/90"
+                    className="h-12 w-full rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-glow)] hover:bg-primary/90"
                   >
                     문의 보내기 <Send className="ml-2 h-4 w-4" />
                   </Button>
@@ -443,14 +449,48 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <div className="text-xl font-semibold tracking-tight">
-            Si<span className="text-primary-glow">Li</span>CA
+      <footer className="border-t border-border bg-secondary/40">
+        <div className="mx-auto max-w-7xl px-6 py-14">
+          <div className="grid gap-10 md:grid-cols-4">
+            <div>
+              <div className="text-2xl font-bold tracking-tight">
+                Si<span className="text-primary-glow">Li</span>CA
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                국내 유일의 고품위 규석 광산을<br />직접 개발하는 규석 전문 기업
+              </p>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">사이트맵</h4>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li><a href="#home" className="hover:text-primary-glow">홈</a></li>
+                <li><a href="#products" className="hover:text-primary-glow">제품</a></li>
+                <li><Link to="/about" className="hover:text-primary-glow">회사소개</Link></li>
+                <li><a href="#contact" className="hover:text-primary-glow">문의하기</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">제품</h4>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                {productCatalog.map((p) => (
+                  <li key={p.slug}>
+                    <Link to={`/products/${p.slug}`} className="hover:text-primary-glow">{p.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">연락처</h4>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 flex-none text-primary-glow" /> 경기도 화성시 팔탄면 고주로 257-58</li>
+                <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary-glow" /> 031-000-0000</li>
+                <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary-glow" /> 평일 09:00 - 18:00</li>
+              </ul>
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} SiLiCA. All rights reserved.
-          </p>
+          </div>
         </div>
       </footer>
     </div>
