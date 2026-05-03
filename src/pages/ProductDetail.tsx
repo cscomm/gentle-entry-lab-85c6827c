@@ -55,7 +55,7 @@ const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
   "EGS / 인조대리석": { img: hpqEgs, items: ["고급 주방 상판", "호텔 인테리어", "건축 내외장재", "변색 없는 백색 대리석"] },
   "고급 유리": { img: hpqGlass, items: ["태양광 패널용 유리", "광학 렌즈 원료", "고투명 특수 유리"] },
   "전자재료": { img: hpqElec, items: ["절연 필러", "에폭시 수지 배합재", "저전압 절연 소재"] },
-  "정밀주조": { img: hpqCasting, items: ["특수 합금 주조사", "정밀 금형용 모래", "고온 내열재"] },
+  
   "나노 가공": { img: hpqNano, items: ["나노 실리카 원료", "실리카 파우더", "고부가 화학 제품"] },
 };
 
