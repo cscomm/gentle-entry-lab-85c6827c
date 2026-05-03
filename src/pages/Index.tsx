@@ -372,8 +372,13 @@ const Index = () => {
             {/* Right: form panel */}
             <form
               onSubmit={handleSubmit}
+              action="https://formsubmit.co/cscomm@naver.com"
+              method="POST"
               className="relative overflow-hidden rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-xl md:p-10"
             >
+              <input type="hidden" name="_subject" value="[홈페이지 문의] 신규 문의 도착" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
               <div className="absolute right-0 top-0 h-32 w-32 -translate-y-12 translate-x-12 rounded-full bg-primary/30 blur-2xl" />
               <div className="relative">
                 <div className="flex items-center gap-3">
