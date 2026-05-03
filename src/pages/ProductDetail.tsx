@@ -96,6 +96,12 @@ const ProductDetail = () => {
             <h2 className="mt-6 text-3xl font-bold md:text-4xl">제품 개요</h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">{product.description}</p>
 
+            {product.detailImage && (
+              <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-sm">
+                <img src={product.detailImage} alt={`${product.name} detail`} className="h-full w-full object-cover" loading="lazy" />
+              </div>
+            )}
+
             {isGradeA && (
               <div className="mt-8 grid grid-cols-2 gap-3">
                 {["100% 무정형", "초저열팽창", "초저금속 불순물", "EC < 3 µs/cm", "맞춤 입도 가공"].map((b) => (
