@@ -449,14 +449,48 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <div className="text-xl font-semibold tracking-tight">
-            Si<span className="text-primary-glow">Li</span>CA
+      <footer className="border-t border-border bg-secondary/40">
+        <div className="mx-auto max-w-7xl px-6 py-14">
+          <div className="grid gap-10 md:grid-cols-4">
+            <div>
+              <div className="text-2xl font-bold tracking-tight">
+                Si<span className="text-primary-glow">Li</span>CA
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                국내 유일의 고품위 규석 광산을<br />직접 개발하는 규석 전문 기업
+              </p>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">사이트맵</h4>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li><a href="#home" className="hover:text-primary-glow">홈</a></li>
+                <li><a href="#products" className="hover:text-primary-glow">제품</a></li>
+                <li><Link to="/about" className="hover:text-primary-glow">회사소개</Link></li>
+                <li><a href="#contact" className="hover:text-primary-glow">문의하기</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">제품</h4>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                {productCatalog.map((p) => (
+                  <li key={p.slug}>
+                    <Link to={`/products/${p.slug}`} className="hover:text-primary-glow">{p.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">연락처</h4>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 flex-none text-primary-glow" /> 경기도 화성시 팔탄면 고주로 257-58</li>
+                <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary-glow" /> 031-000-0000</li>
+                <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary-glow" /> 평일 09:00 - 18:00</li>
+              </ul>
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} SiLiCA. All rights reserved.
-          </p>
+          </div>
         </div>
       </footer>
     </div>
