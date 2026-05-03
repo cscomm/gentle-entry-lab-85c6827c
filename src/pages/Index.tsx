@@ -437,7 +437,7 @@ const Index = () => {
                   <Button
                     type="submit"
                     size="lg"
-                    className="h-12 w-full rounded-full bg-primary-glow text-foreground shadow-[var(--shadow-glow)] hover:bg-primary-glow/90"
+                    className="h-12 w-full rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-glow)] hover:bg-primary/90"
                   >
                     문의 보내기 <Send className="ml-2 h-4 w-4" />
                   </Button>
