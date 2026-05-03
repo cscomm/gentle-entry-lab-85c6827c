@@ -491,30 +491,6 @@ const Index = () => {
           </div>
           <p className="mt-2 text-sm text-muted-foreground">규석전문기업</p>
 
-          {/* Office */}
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-6">
-            <div className="flex items-center justify-center gap-2">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <MapPin className="h-3.5 w-3.5" />
-              </span>
-              <h4 className="text-sm font-semibold text-foreground">사무실</h4>
-            </div>
-            <ul className="mt-4 flex flex-col items-center gap-2 text-sm text-muted-foreground sm:flex-row sm:justify-center sm:gap-6">
-              <li>경기도 화성시 남양읍 수작이길 55</li>
-              <li className="flex items-center gap-1.5">
-                <Phone className="h-3.5 w-3.5 text-primary-glow" /> 031-000-0000
-              </li>
-              <li>
-                <a
-                  href="mailto:info@silica.co.kr"
-                  className="inline-flex items-center gap-1.5 hover:text-primary-glow"
-                >
-                  <Mail className="h-3.5 w-3.5 text-primary-glow" /> info@silica.co.kr
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Sitemap */}
           <nav className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
             <a href="/#home" className="hover:text-primary-glow">홈</a>
