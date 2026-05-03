@@ -11,19 +11,14 @@ import SiteHeader from "@/components/SiteHeader";
 import heroImage from "@/assets/hero-quartz.jpg";
 import heroNanoImage from "@/assets/hero-nanopowder.jpg";
 import facility from "@/assets/facility.jpg";
-import pBlockA from "@/assets/p-block-a.jpg";
-import pBlockB from "@/assets/p-block-b.jpg";
-import pBlockC from "@/assets/p-block-c.jpg";
-import pSandA from "@/assets/p-sand-a.jpg";
-import pSandB from "@/assets/p-sand-b.jpg";
-import pSandC from "@/assets/p-sand-c.jpg";
-import pPowder from "@/assets/p-powder.jpg";
+import gradeA from "@/assets/grade-a-silica.png";
+import gradeB from "@/assets/grade-b-silica.png";
+import gradeC from "@/assets/grade-c-silica.png";
 import pProcess from "@/assets/p-process.jpg";
-import pQuality from "@/assets/p-quality.jpg";
-import aSemi from "@/assets/a-semi.jpg";
-import aOptic from "@/assets/a-optic.jpg";
-import aSolar from "@/assets/a-solar.jpg";
-import aElec from "@/assets/a-elec.jpg";
+import aSemi from "@/assets/a-semicon.jpg";
+import aOptic from "@/assets/a-optics.jpg";
+import aSolar from "@/assets/a-display.jpg";
+import aElec from "@/assets/a-energy.jpg";
 
 const navItems = [
   { en: "Home", ko: "홈", href: "#home" },
@@ -33,12 +28,12 @@ const navItems = [
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories = ["전체 제품", "용융규석", "용융규사", "용융규석미세분말", "고순도규석"];
+const productCategories = ["전체 제품", "A등급 용융 규석", "B등급 용융 규석", "C등급 용융 규석", "고순도규석"];
 
 const products = [
-  { img: pBlockA, slug: "fused-silica-block", title: "용융규석", desc: "최고급 융편석영 블록 — 전자 및 고급 광학 용도에 적합", cat: "용융규석" },
-  { img: pSandA, slug: "fused-silica-sand", title: "용융규사", desc: "정밀 주조 및 첨단 산업용 고품질 용융규사", cat: "용융규사" },
-  { img: pPowder, slug: "fused-silica-powder", title: "용융규석미세분말", desc: "고분산 융편석영 미세 분말, 전자 소재 및 코팅 용도에 적합", cat: "용융규석미세분말" },
+  { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", cat: "A등급 용융 규석" },
+  { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융 규석", desc: "정밀 주조 및 첨단 산업용 고품질 용융 규석", cat: "B등급 용융 규석" },
+  { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융 규석", desc: "산업용 일반 공정에 최적화된 경제형 용융 규석", cat: "C등급 용융 규석" },
   { img: pProcess, slug: "high-purity-quartz", title: "고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석", cat: "고순도규석" },
 ];
 
