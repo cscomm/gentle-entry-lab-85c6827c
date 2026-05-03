@@ -59,6 +59,7 @@ const Index = () => {
   const { toast } = useToast();
   const [activeCat, setActiveCat] = useState("전체 제품");
   const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const slides = [
     {
@@ -88,14 +89,40 @@ const Index = () => {
   const filteredProducts =
     activeCat === "전체 제품" ? products : products.filter((p) => p.cat === activeCat);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (!form.name || !form.phone || !form.message) {
-      e.preventDefault();
       toast({ title: "필수 항목을 입력해 주세요", variant: "destructive" });
       return;
     }
-    // FormSubmit will handle the POST and redirect; show toast optimistically
-    toast({ title: "문의가 전송되었습니다", description: "빠른 시일 내에 답변드리겠습니다." });
+
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const response = await fetch("https://formsubmit.co/ajax/cscomm@naver.com", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || result?.success === "false") {
+        throw new Error(result?.message || "메일 전송에 실패했습니다.");
+      }
+
+      setForm({ name: "", phone: "", email: "", company: "", message: "" });
+      toast({ title: "문의가 전송되었습니다", description: "빠른 시일 내에 답변드리겠습니다." });
+    } catch (error) {
+      toast({
+        title: "문의 전송에 실패했습니다",
+        description: "잠시 후 다시 시도하시거나 이메일로 직접 문의해 주세요.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -371,14 +398,13 @@ const Index = () => {
 
           <form
             onSubmit={handleSubmit}
-            action="https://formsubmit.co/cscomm@naver.com"
+            action="https://formsubmit.co/ajax/cscomm@naver.com"
             method="POST"
             className="relative overflow-hidden rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-xl md:p-10 lg:col-span-7"
           >
             <input type="hidden" name="_subject" value="[홈페이지 문의] 신규 문의 도착" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://gentle-entry-lab.lovable.app/?sent=1" />
             <input type="text" name="_honey" style={{ display: "none" }} />
             <div className="absolute right-0 top-0 h-40 w-40 -translate-y-16 translate-x-16 rounded-full bg-primary/30 blur-2xl" />
             <div className="absolute bottom-0 left-0 h-40 w-40 translate-y-16 -translate-x-16 rounded-full bg-primary-glow/20 blur-2xl" />
@@ -455,9 +481,10 @@ const Index = () => {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={isSubmitting}
                   className="h-12 w-full rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-glow)] hover:bg-primary/90"
                 >
-                  문의 보내기 <Send className="ml-2 h-4 w-4" />
+                  {isSubmitting ? "전송 중..." : "문의 보내기"} <Send className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
