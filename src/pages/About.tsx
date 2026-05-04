@@ -121,11 +121,11 @@ const About = () => {
               JANGSU BAEKAM MINE · BAR
             </span>
             <h2 className="mt-5 text-3xl font-bold md:text-4xl">
-              장수백암광산 <span className="text-primary">(BAR)</span>
+              장수백암광산
             </h2>
             <p className="mt-6 text-left text-muted-foreground md:text-center">
               <strong className="text-foreground">장수백암광산(BAR)</strong>의 이름은, 일제강점기 때의 소재지 지명에서 유래합니다.
-              이 광산은 전라북도 장수군과 진안군 경계에 위치한 <strong className="text-foreground">백운면(白雲面) 백암리(白巖里)</strong>에 소재
+              전라북도 장수군과 진안군 경계에 위치한 <strong className="text-foreground">백운면(白雲面) 백암리(白巖里)</strong>에 소재
               (현재 지명은 진안군 동향면 신송리)했던 바, 백암리라는 원래 지명도 <strong className="text-foreground">백암(白巖) — '흰색 광석'</strong>이라는
               별칭으로 불렸던 규석(Silica Stone, 硅石)과 장석이 생산됐던 이유에서 비롯돼 백암리(白巖里)라고 명명됐던 역사를 가지고 있습니다.
             </p>
