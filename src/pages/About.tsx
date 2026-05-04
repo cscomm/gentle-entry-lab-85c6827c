@@ -11,6 +11,12 @@ import minePlant from "@/assets/mine-plant.png";
 import mineBuilding from "@/assets/mine-building.jpg";
 import pProcess from "@/assets/p-process.jpg";
 import processDiagram from "@/assets/process-diagram.png";
+import sdr1 from "@/assets/sdr-1.png";
+import sdr2 from "@/assets/sdr-2.png";
+import sdr3 from "@/assets/sdr-3.png";
+import sdr4 from "@/assets/sdr-4.png";
+import sdr5 from "@/assets/sdr-5.jpg";
+import { Beaker, Filter, FlaskConical, Gem, Snowflake, Thermometer, Droplets, Microscope } from "lucide-react";
 
 const stats = [
   { value: "유일", label: "국내 고품위 규석 광산 직접 운영" },
@@ -213,25 +219,115 @@ const About = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-6 rounded-2xl border border-border bg-card p-6 md:p-8">
-              <div className="flex items-center justify-center gap-2 border-b border-border pb-4">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">✓</span>
-                <span className="text-sm font-semibold tracking-wide md:text-base">다양한 입도 (모래 / 분말) 제품으로 생산</span>
+      {/* SDR Quartz Material - Partner Company */}
+      <section className="bg-secondary/40 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
+              PARTNER COMPANY · JIANGSU, CHINA
+            </span>
+            <h2 className="mt-5 text-3xl font-bold md:text-4xl">
+              SDR <span className="text-primary">Quartz Material</span>
+            </h2>
+            <p className="mt-6 text-left text-muted-foreground md:text-center">
+              <strong className="text-foreground">SDR Quartz(중국 장수성)</strong>는 석영 소재 분야(용융 석영, 실리콘 미분말)에서
+              <strong className="text-foreground"> 20년 이상의 경력</strong>을 가진 전문 경영진 및 생산 인력을 보유하고 있습니다.
+              용융 석영 계열 제품의 전 공정 생산 체계와 <strong className="text-foreground">나노 분체 규소 소재 공정 기술 연구 센터</strong> 및
+              성급 실험실을 갖추고 있어 중국내 여러 대학 및 연구소와 장기적이고 심층적인 산학연 협력을 진행 중입니다.
+            </p>
+            <p className="mt-4 text-left text-muted-foreground md:text-center">
+              중국에서 규석 기술의 메카인 장수성에서도 앞선 기술력으로 <strong className="text-foreground">석영 용해, 원석 선별, 분쇄, 미분말 가공</strong>에
+              이르는 4단계 전 공정을 자체 생산하여, 원료부터 철저하게 품질을 관리하며
+              <strong className="text-primary"> ISO 9001 및 ISO 14001 인증</strong>을 보유하고 있습니다.
+            </p>
+          </div>
+
+          {/* SDR Photo Mosaic */}
+          <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
+            <div className="relative col-span-1 overflow-hidden rounded-2xl border border-border md:col-span-2 md:row-span-2">
+              <img src={sdr2} alt="SDR Quartz 본사 외관" className="h-full max-h-[560px] w-full object-cover transition duration-700 hover:scale-105" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-5">
+                <span className="text-xs font-semibold tracking-widest text-white/80">HEADQUARTERS</span>
+                <p className="mt-1 text-base font-bold text-white">SDR Quartz · 중국 장수성 본사</p>
               </div>
-              <div className="mt-6 grid gap-6 md:grid-cols-2">
-                <div>
-                  <div className="text-sm font-semibold text-primary">모래 (Sand) 제품군</div>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    60mm 과립부터 정밀 입도까지 — 주조·건축·태양광 등 산업별 맞춤 공급
-                  </p>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img src={sdr1} alt="원료 야적 창고" className="h-full min-h-[180px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img src={sdr4} alt="용융 석영 잉곳" className="h-full min-h-[180px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border md:col-span-2">
+              <img src={sdr3} alt="미분말 가공 라인" className="h-full min-h-[220px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img src={sdr5} alt="고온 전기 용해로 작업" className="h-full min-h-[220px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+          </div>
+
+          {/* SDR Manufacturing Process - 4 step */}
+          <div className="mt-20">
+            <div className="text-center">
+              <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
+                FUSED SILICA · MANUFACTURING
+              </span>
+              <h3 className="mt-5 text-2xl font-bold md:text-3xl">
+                용융 실리카 <span className="text-primary">제조 공정</span>
+              </h3>
+              <p className="mt-3 text-muted-foreground">
+                고순도 용융 실리카가 만들어지는 4단계 공정 — 최첨단 기술과 철저한 품질 관리로 최고의 제품을 만듭니다.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-4">
+              {[
+                { n: "01", icon: Gem, title: "용융 석영 원석", desc: "천연 고순도 석영을 원료로 사용하여 고온 전기 용해로에서 1750℃ 이상의 온도로 용융하여 불순물을 제거합니다.", color: "from-blue-500/20 to-blue-500/5" },
+                { n: "02", icon: Filter, title: "등급 분류", desc: "첨단 정밀 검사 장비를 통해 내부 결함, 기포, 불순물 등을 정밀하게 검사하고, 품질 등급에 따라 분류합니다.", color: "from-sky-500/20 to-sky-500/5" },
+                { n: "03", icon: Snowflake, title: "입자 분쇄", desc: "분류된 용융 석영을 특수 장비로 입자 크기에 맞게 파쇄 및 분쇄하여 다양한 용도에 적합한 입자 형태로 가공합니다.", color: "from-violet-500/20 to-violet-500/5" },
+                { n: "04", icon: Beaker, title: "미분 가공", desc: "파쇄된 입자를 초미세 분말로 가공하여 높은 순도와 균일한 입도를 가진 미분 석영을 생산합니다.", color: "from-emerald-500/20 to-emerald-500/5" },
+              ].map((s) => (
+                <div key={s.n} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary hover:shadow-[var(--shadow-glow)]">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${s.color} opacity-60`} />
+                  <div className="relative">
+                    <div className="flex items-center justify-between">
+                      <span className="rounded-md bg-primary/10 px-2 py-1 text-xs font-bold tracking-widest text-primary">{s.n}</span>
+                      <s.icon className="h-6 w-6 text-primary/70" />
+                    </div>
+                    <h4 className="mt-6 text-lg font-bold">{s.title}</h4>
+                    <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm font-semibold text-primary">분말 (Powder) 제품군</div>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    1µm(12500 메쉬) 미분까지 — 반도체·코팅·전자재료 등 고정밀 응용
-                  </p>
+              ))}
+            </div>
+
+            {/* QC strip */}
+            <div className="mt-6 rounded-2xl border border-border bg-card p-6 md:p-8">
+              <div className="grid items-center gap-6 md:grid-cols-6">
+                <div className="flex items-center gap-3 md:col-span-1">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <ShieldCheck className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-bold">엄격한 품질 관리</span>
                 </div>
+                {[
+                  { icon: Thermometer, t: "고순도", d: "불순물 최소화로 최고의 순도 보장" },
+                  { icon: Droplets, t: "균일한 품질", d: "정밀한 공정 관리로 일정한 품질 유지" },
+                  { icon: ShieldCheck, t: "안정성", d: "우수한 물리·화학적 안정성 제공" },
+                  { icon: FlaskConical, t: "신뢰성", d: "철저한 검사와 검증으로 높은 신뢰성 확보" },
+                  { icon: Microscope, t: "맞춤 솔루션", d: "고객 요구에 맞춘 다양한 제품 공급" },
+                ].map((q) => (
+                  <div key={q.t} className="flex items-start gap-3">
+                    <q.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                    <div>
+                      <div className="text-xs font-bold">{q.t}</div>
+                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{q.d}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -274,26 +370,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-secondary/40 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-              PROCESS
-            </span>
-            <h2 className="mt-5 text-3xl font-bold md:text-4xl">원광에서 산업으로</h2>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
-            {milestones.map((m, i) => (
-              <div key={m.year} className="relative rounded-2xl border border-border bg-card p-6">
-                <div className="text-xs font-semibold tracking-widest text-primary">STEP {String(i + 1).padStart(2, "0")}</div>
-                <div className="mt-2 text-xl font-bold">{m.year}</div>
-                <p className="mt-3 text-sm text-muted-foreground">{m.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
