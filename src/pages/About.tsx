@@ -4,6 +4,12 @@ import { ArrowLeft, ArrowRight, Award, Factory, Globe2, Mountain, ShieldCheck, S
 import SiteHeader from "@/components/SiteHeader";
 import facility from "@/assets/facility.jpg";
 import heroImage from "@/assets/hero-quartz.jpg";
+import mineAerial from "@/assets/mine-aerial.png";
+import mineTunnel from "@/assets/mine-tunnel.jpg";
+import mineOre from "@/assets/mine-ore.jpg";
+import minePlant from "@/assets/mine-plant.png";
+import mineBuilding from "@/assets/mine-building.jpg";
+import pProcess from "@/assets/p-process.jpg";
 
 const stats = [
   { value: "유일", label: "국내 고품위 규석 광산 직접 운영" },
@@ -93,8 +99,7 @@ const About = () => {
               COMPANY OVERVIEW
             </span>
             <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
-              원료에서 완제품까지,<br />
-              <span className="text-primary">하나의 책임</span>
+              원료에서 완제품까지
             </h2>
             <p className="mt-6 text-muted-foreground">
               당사는 국내에는 현재 유일한 고품위 규석 광산을 직접 개발하여 운영 중이며, 탐사부터 채광 후 1차 공정을 자체적으로 수행하여 최고 품질의 고품위 석영을 생산하고 있습니다.
@@ -105,6 +110,75 @@ const About = () => {
             <p className="mt-4 text-muted-foreground">
               용융실리카의 현지 공장은 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
             </p>
+          </div>
+        </div>
+
+        {/* BAR Mine Story */}
+        <div className="mt-20 md:mt-28">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
+              JANGSU BAEKAM MINE · BAR
+            </span>
+            <h2 className="mt-5 text-3xl font-bold md:text-4xl">
+              장수백암광산 <span className="text-primary">(BAR)</span>
+            </h2>
+            <p className="mt-6 text-left text-muted-foreground md:text-center">
+              <strong className="text-foreground">장수백암광산(BAR)</strong>의 이름은, 일제강점기 때의 소재지 지명에서 유래합니다.
+              이 광산은 전라북도 장수군과 진안군 경계에 위치한 <strong className="text-foreground">백운면(白雲面) 백암리(白巖里)</strong>에 소재
+              (현재 지명은 진안군 동향면 신송리)했던 바, 백암리라는 원래 지명도 <strong className="text-foreground">백암(白巖) — '흰색 광석'</strong>이라는
+              별칭으로 불렸던 규석(Silica Stone, 硅石)과 장석이 생산됐던 이유에서 비롯돼 백암리(白巖里)라고 명명됐던 역사를 가지고 있습니다.
+            </p>
+            <p className="mt-4 text-left text-muted-foreground md:text-center">
+              과거에 이미 노천 장석광산으로 알려진 광산이며, 현재는 굴진을 통한 규석을 채광하고 있습니다.
+              <strong className="text-foreground"> 현존하는 국내 유일의 고품위 규석광산</strong>으로,
+              가장 큰 특징은 <strong className="text-primary">최저 99.5%를 유지하는 편차 없는 순도</strong>를 보장한다는 점입니다.
+            </p>
+          </div>
+
+          {/* Photo mosaic */}
+          <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
+            <div className="relative col-span-1 overflow-hidden rounded-2xl border border-border md:col-span-2 md:row-span-2">
+              <img src={mineAerial} alt="장수백암광산 항공 전경" className="h-full max-h-[560px] w-full object-cover transition duration-700 hover:scale-105" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-5">
+                <span className="text-xs font-semibold tracking-widest text-white/80">AERIAL VIEW</span>
+                <p className="mt-1 text-base font-bold text-white">광산 전경 — 장수 백암리</p>
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img src={mineTunnel} alt="갱도 채광 현장" className="h-full min-h-[180px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img src={mineOre} alt="채광된 고품위 규석 원광" className="h-full min-h-[180px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border md:col-span-2">
+              <img src={minePlant} alt="가공 플랜트 내부" className="h-full min-h-[220px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img src={mineBuilding} alt="(주)BAR 사업장 외관" className="h-full min-h-[220px] w-full object-cover transition duration-700 hover:scale-105" />
+            </div>
+          </div>
+
+          {/* Process banner */}
+          <div className="mt-16 overflow-hidden rounded-2xl border border-border">
+            <div className="grid items-center md:grid-cols-2">
+              <div className="relative h-72 md:h-full md:min-h-[360px]">
+                <img src={pProcess} alt="제조 공정" className="absolute inset-0 h-full w-full object-cover" />
+              </div>
+              <div className="bg-card p-8 md:p-12">
+                <span className="inline-block rounded-full border border-border bg-background px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
+                  MANUFACTURING PROCESS
+                </span>
+                <h3 className="mt-5 text-2xl font-bold md:text-3xl">
+                  광산에서 첨단 산업으로<br />
+                  <span className="text-primary">정밀한 제조 공정</span>
+                </h3>
+                <p className="mt-5 text-muted-foreground">
+                  자체 광산에서 채광한 고순도 원광을 1차 가공·정제·용융·미분쇄까지
+                  일관된 공정으로 처리합니다. 단계별 품질 관리(QC)를 통해
+                  편차 없는 순도와 균일한 입도를 보장합니다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
