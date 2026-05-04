@@ -30,19 +30,19 @@ const navItems = [
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories: { label: string; slug?: string }[] = [
-  { label: "전체 제품" },
-  { label: "A등급 용융 규석", slug: "fused-silica-block" },
-  { label: "B등급 용융 규석", slug: "fused-silica-sand" },
-  { label: "C등급 용융 규석", slug: "fused-silica-powder" },
-  { label: "천연 고순도규석", slug: "high-purity-quartz" },
+const productCategories: { label: string; en: string; slug?: string }[] = [
+  { label: "전체 제품", en: "All Products" },
+  { label: "A등급 용융 규석", en: "Grade A Fused Silica", slug: "fused-silica-block" },
+  { label: "B등급 용융 규석", en: "Grade B Fused Silica", slug: "fused-silica-sand" },
+  { label: "C등급 용융 규석", en: "Grade C Fused Silica", slug: "fused-silica-powder" },
+  { label: "천연 고순도규석", en: "Natural High-Purity Quartz", slug: "high-purity-quartz" },
 ];
 
 const products = [
-  { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", cat: "A등급 용융 규석" },
-  { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융 규석", desc: "정밀 주조 및 첨단 산업용 고품질 용융 규석", cat: "B등급 용융 규석" },
-  { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융 규석", desc: "산업용 일반 공정에 최적화된 경제형 용융 규석", cat: "C등급 용융 규석" },
-  { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석", cat: "천연 고순도규석" },
+  { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", enTitle: "Grade A Fused Silica", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", enDesc: "Ultra-high-purity 100% amorphous fused silica — for semiconductor, optics, aerospace & defense.", cat: "A등급 용융 규석" },
+  { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융 규석", enTitle: "Grade B Fused Silica", desc: "정밀 주조 및 첨단 산업용 고품질 용융 규석", enDesc: "High-quality fused silica for precision casting and advanced industries.", cat: "B등급 용융 규석" },
+  { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융 규석", enTitle: "Grade C Fused Silica", desc: "산업용 일반 공정에 최적화된 경제형 용융 규석", enDesc: "Economical fused silica optimized for general industrial processes.", cat: "C등급 용융 규석" },
+  { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", enTitle: "Natural High-Purity Quartz", desc: "엄선된 광원에서 채광한 고순도 규석", enDesc: "High-purity quartz mined from carefully selected ore deposits.", cat: "천연 고순도규석" },
 ];
 
 const applications = [
@@ -268,13 +268,13 @@ const Index = () => {
               if (cat.slug) {
                 return (
                   <Link key={cat.label} to={`/products/${cat.slug}`} className={className}>
-                    {cat.label}
+                    {lang === "en" ? cat.en : cat.label}
                   </Link>
                 );
               }
               return (
                 <button key={cat.label} onClick={() => setActiveCat(cat.label)} className={className}>
-                  {cat.label}
+                  {lang === "en" ? cat.en : cat.label}
                 </button>
               );
             })}
@@ -296,8 +296,8 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                  <h3 className="text-lg font-semibold">{lang === "en" ? p.enTitle : p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{lang === "en" ? p.enDesc : p.desc}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm text-primary-glow transition group-hover:gap-3">
                     {t("products.detail")} <ArrowRight className="h-4 w-4" />
                   </span>
