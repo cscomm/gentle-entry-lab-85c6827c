@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Award, Factory, Globe2, Mountain, ShieldCheck, Sparkles } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import facility from "@/assets/facility.jpg";
 import heroImage from "@/assets/hero-quartz.jpg";
 import mineAerial from "@/assets/mine-aerial.png";
@@ -334,18 +335,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-5xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold md:text-4xl">함께할 준비가 되셨다면</h2>
-        <p className="mt-4 text-muted-foreground">
-          최적의 규석 솔루션이 필요하신가요? 언제든 문의해 주세요.
-        </p>
-        <Button asChild size="lg" className="mt-8 h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
-          <Link to="/#contact">
-            문의하기 <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-      </section>
+      <SiteFooter />
     </div>
   );
 };

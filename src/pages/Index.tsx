@@ -7,6 +7,8 @@ import { ArrowRight, ChevronLeft, ChevronRight, MapPin, Mail, Clock, Phone, Send
 import { useToast } from "@/hooks/use-toast";
 import { productCatalog } from "@/data/products";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { useLang } from "@/contexts/LanguageContext";
 
 import heroImage from "@/assets/hero-quartz.jpg";
 import heroNanoImage from "@/assets/hero-nanopowder.jpg";
@@ -28,19 +30,19 @@ const navItems = [
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories: { label: string; slug?: string }[] = [
-  { label: "전체 제품" },
-  { label: "A등급 용융 규석", slug: "fused-silica-block" },
-  { label: "B등급 용융 규석", slug: "fused-silica-sand" },
-  { label: "C등급 용융 규석", slug: "fused-silica-powder" },
-  { label: "천연 고순도규석", slug: "high-purity-quartz" },
+const productCategories: { label: string; en: string; slug?: string }[] = [
+  { label: "전체 제품", en: "All Products" },
+  { label: "A등급 용융 규석", en: "Grade A Fused Silica", slug: "fused-silica-block" },
+  { label: "B등급 용융 규석", en: "Grade B Fused Silica", slug: "fused-silica-sand" },
+  { label: "C등급 용융 규석", en: "Grade C Fused Silica", slug: "fused-silica-powder" },
+  { label: "천연 고순도규석", en: "Natural High-Purity Quartz", slug: "high-purity-quartz" },
 ];
 
 const products = [
-  { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", cat: "A등급 용융 규석" },
-  { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융 규석", desc: "정밀 주조 및 첨단 산업용 고품질 용융 규석", cat: "B등급 용융 규석" },
-  { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융 규석", desc: "산업용 일반 공정에 최적화된 경제형 용융 규석", cat: "C등급 용융 규석" },
-  { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", desc: "엄선된 광원에서 채광한 고순도 규석", cat: "천연 고순도규석" },
+  { img: gradeA, slug: "fused-silica-block", title: "A등급 용융 규석", enTitle: "Grade A Fused Silica", desc: "초고순도 100% 무정형 용융 실리카 — 반도체·광학·항공/방산 전용", enDesc: "Ultra-high-purity 100% amorphous fused silica — for semiconductor, optics, aerospace & defense.", cat: "A등급 용융 규석" },
+  { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융 규석", enTitle: "Grade B Fused Silica", desc: "정밀 주조 및 첨단 산업용 고품질 용융 규석", enDesc: "High-quality fused silica for precision casting and advanced industries.", cat: "B등급 용융 규석" },
+  { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융 규석", enTitle: "Grade C Fused Silica", desc: "산업용 일반 공정에 최적화된 경제형 용융 규석", enDesc: "Economical fused silica optimized for general industrial processes.", cat: "C등급 용융 규석" },
+  { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", enTitle: "Natural High-Purity Quartz", desc: "엄선된 광원에서 채광한 고순도 규석", enDesc: "High-purity quartz mined from carefully selected ore deposits.", cat: "천연 고순도규석" },
 ];
 
 const applications = [
@@ -58,6 +60,7 @@ const news = [
 
 const Index = () => {
   const { toast } = useToast();
+  const { t, lang } = useLang();
   const [activeCat, setActiveCat] = useState("전체 제품");
   const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,16 +69,16 @@ const Index = () => {
     {
       img: heroImage,
       alt: "High-purity quartz crystal",
-      title: "Silica: Nature's Gift to the Future.",
-      sub: "Technology that Leads Industry",
-      desc: "용융실리카와 고품위 실리카. 다양한 산업에 최적의 솔루션을 제공합니다.",
+      title: t("hero1.title"),
+      sub: t("hero1.sub"),
+      desc: t("hero1.desc"),
     },
     {
       img: heroNanoImage,
       alt: "High-purity nano silica powder",
-      title: "High-Purity Silica Powder",
-      sub: "A New Standard for Precision Industries",
-      desc: "전자·코팅·첨단소재 산업에 적용되는 고분산 고순도 실리카 분말",
+      title: t("hero2.title"),
+      sub: t("hero2.sub"),
+      desc: t("hero2.desc"),
     },
   ];
   const [slideIdx, setSlideIdx] = useState(0);
@@ -191,7 +194,7 @@ const Index = () => {
             className="mt-10 h-12 rounded-full bg-primary px-8 text-primary-foreground shadow-[var(--shadow-glow)] hover:bg-primary/90"
           >
             <a href="#products" onClick={() => setActiveCat("전체 제품")}>
-              제품 살펴보기
+              {t("hero.cta")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
@@ -219,20 +222,14 @@ const Index = () => {
           </div>
           <div>
             <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-              ABOUT US
+              {t("about.tag")}
             </span>
-            <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-              국내 유일의 고품위<br />규석 광산을<br />직접 개발합니다
+            <h2 className="mt-6 whitespace-pre-line text-4xl font-bold leading-tight md:text-5xl">
+              {t("about.title")}
             </h2>
-            <p className="mt-6 text-muted-foreground">
-              당사는 국내에는 현재 유일한 고품위 규석 광산을 직접 개발하여 운영 중이며, 탐사부터 채광 후 1차 공정을 자체적으로 수행하여 최고 품질의 고품위 석영을 생산하고 있습니다.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              원료 선별부터 완제품까지 운영되는 각 단계의 차별화된 품질 관리 시스템을 통해 고객의 높은 기대에 부합하는 제품을 생산하고 있습니다.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              용융실리카의 현지 공장은 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
-            </p>
+            <p className="mt-6 text-muted-foreground">{t("about.p1")}</p>
+            <p className="mt-4 text-muted-foreground">{t("about.p2")}</p>
+            <p className="mt-4 text-muted-foreground">{t("about.p3")}</p>
             <Button
               asChild
               variant="outline"
@@ -240,7 +237,7 @@ const Index = () => {
               className="mt-8 h-12 rounded-full border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground"
             >
               <Link to="/about">
-                회사 소개 보기
+                {t("about.btn")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -253,7 +250,7 @@ const Index = () => {
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
             <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-              제품 카테고리
+              {t("products.cat")}
             </span>
             <h2 className="mt-5 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
               Mineral Product
@@ -271,13 +268,13 @@ const Index = () => {
               if (cat.slug) {
                 return (
                   <Link key={cat.label} to={`/products/${cat.slug}`} className={className}>
-                    {cat.label}
+                    {lang === "en" ? cat.en : cat.label}
                   </Link>
                 );
               }
               return (
                 <button key={cat.label} onClick={() => setActiveCat(cat.label)} className={className}>
-                  {cat.label}
+                  {lang === "en" ? cat.en : cat.label}
                 </button>
               );
             })}
@@ -299,10 +296,10 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                  <h3 className="text-lg font-semibold">{lang === "en" ? p.enTitle : p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{lang === "en" ? p.enDesc : p.desc}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm text-primary-glow transition group-hover:gap-3">
-                    자세히 보기 <ArrowRight className="h-4 w-4" />
+                    {t("products.detail")} <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
               </Link>
@@ -379,14 +376,13 @@ const Index = () => {
             {/* Left: Slogan + small office card */}
             <div className="lg:col-span-5">
               <span className="inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs tracking-widest text-background/80 backdrop-blur">
-                <MessageSquare className="h-3.5 w-3.5" /> Contact Us
+                <MessageSquare className="h-3.5 w-3.5" /> {t("contact.tag")}
               </span>
-              <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
-                프로젝트의 시작,<br />
-                <span className="text-primary-glow">Silica가 함께 합니다.</span>
+              <h2 className="mt-6 whitespace-pre-line text-3xl font-bold leading-tight md:text-4xl">
+                {t("contact.title")}
               </h2>
               <p className="mt-5 text-sm text-background/70">
-                최적의 규석 솔루션이 필요하신 모든 산업 분야의 파트너를 환영합니다.
+                {t("contact.desc")}
               </p>
 
               {/* Compact office card */}
@@ -394,12 +390,12 @@ const Index = () => {
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] tracking-widest text-primary-glow">OFFICE</span>
                   <span className="h-px flex-1 bg-background/15" />
-                  <span className="text-xs text-background/60">사무실</span>
+                  <span className="text-xs text-background/60">{t("contact.office")}</span>
                 </div>
                 <ul className="mt-4 space-y-2.5 text-sm">
                   <li className="flex items-start gap-2.5 text-background/85">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" />
-                    <span>경기도 화성시 남양읍 수작이길 55</span>
+                    <span>{t("footer.address")}</span>
                   </li>
                   <li>
                     <a href="tel:031-000-0000" className="flex items-center gap-2.5 text-background/85 hover:text-primary-glow">
@@ -434,13 +430,13 @@ const Index = () => {
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <Send className="h-4 w-4" />
                 </div>
-                <h3 className="text-xl font-semibold">문의 양식</h3>
+                <h3 className="text-xl font-semibold">{t("contact.form")}</h3>
               </div>
 
               <div className="mt-8 grid gap-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-background/60">이름 *</label>
+                    <label className="text-xs uppercase tracking-wider text-background/60">{t("form.name")}</label>
                     <Input
                       name="이름"
                       value={form.name}
@@ -450,7 +446,7 @@ const Index = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-background/60">연락처 *</label>
+                    <label className="text-xs uppercase tracking-wider text-background/60">{t("form.phone")}</label>
                     <Input
                       name="연락처"
                       type="tel"
@@ -463,7 +459,7 @@ const Index = () => {
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-background/60">이메일</label>
+                    <label className="text-xs uppercase tracking-wider text-background/60">{t("form.email")}</label>
                     <Input
                       name="이메일"
                       type="email"
@@ -474,7 +470,7 @@ const Index = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-background/60">회사명</label>
+                    <label className="text-xs uppercase tracking-wider text-background/60">{t("form.company")}</label>
                     <Input
                       name="회사명"
                       value={form.company}
@@ -485,7 +481,7 @@ const Index = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs uppercase tracking-wider text-background/60">문의 내용 *</label>
+                  <label className="text-xs uppercase tracking-wider text-background/60">{t("form.message")}</label>
                   <Textarea
                     name="문의내용"
                     value={form.message}
@@ -505,7 +501,7 @@ const Index = () => {
                   disabled={isSubmitting}
                   className="h-12 w-full rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-glow)] hover:bg-primary/90"
                 >
-                  {isSubmitting ? "전송 중..." : "문의 보내기"} <Send className="ml-2 h-4 w-4" />
+                  {isSubmitting ? t("form.sending") : t("form.send")} <Send className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -514,41 +510,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-secondary/40">
-        <div className="mx-auto max-w-5xl px-6 py-16 text-center">
-          {/* Brand */}
-          <div className="text-3xl font-bold tracking-tight">
-            Si<span className="text-primary-glow">Li</span>CA
-          </div>
-          <p className="mt-2 text-sm text-muted-foreground">규석전문기업</p>
-
-          {/* Sitemap */}
-          <nav className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-            <a href="/#home" className="hover:text-primary-glow">홈</a>
-            <span className="opacity-30">|</span>
-            <a href="/#products" className="hover:text-primary-glow">제품</a>
-            <span className="opacity-30">|</span>
-            <Link to="/about" className="hover:text-primary-glow">회사소개</Link>
-            <span className="opacity-30">|</span>
-            <a href="/#contact" className="hover:text-primary-glow">문의하기</a>
-          </nav>
-
-          {/* HQ + bottom info */}
-          <div className="mt-10 border-t border-border pt-6">
-            <p className="text-xs text-muted-foreground">
-              본사 · 전라북도 진안군 동계로 328 · 주식회사 비에이알
-            </p>
-            <div className="mt-4 flex flex-col items-center justify-center gap-3 text-xs text-muted-foreground sm:flex-row">
-              <Link to="/terms" className="hover:text-primary-glow">이용약관</Link>
-              <span className="opacity-30">|</span>
-              <Link to="/privacy" className="hover:text-primary-glow">개인정보처리방침</Link>
-              <span className="hidden opacity-30 sm:inline">|</span>
-              <span>© 2023 SiLiCA. All rights reserved.</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };

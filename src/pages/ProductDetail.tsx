@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProductBySlug, productCatalog } from "@/data/products";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import aSemi from "@/assets/a-semicon.jpg";
 import aOptic from "@/assets/a-optics.jpg";
 import aDisplay from "@/assets/a-display.jpg";
@@ -277,14 +278,7 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <div className="text-xl font-semibold tracking-tight">
-            Si<span className="text-primary-glow">Li</span>CA
-          </div>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} SiLiCA. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };
