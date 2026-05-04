@@ -4,6 +4,12 @@ import { ArrowLeft, ArrowRight, Award, Factory, Globe2, Mountain, ShieldCheck, S
 import SiteHeader from "@/components/SiteHeader";
 import facility from "@/assets/facility.jpg";
 import heroImage from "@/assets/hero-quartz.jpg";
+import mineAerial from "@/assets/mine-aerial.png";
+import mineTunnel from "@/assets/mine-tunnel.jpg";
+import mineOre from "@/assets/mine-ore.jpg";
+import minePlant from "@/assets/mine-plant.png";
+import mineBuilding from "@/assets/mine-building.jpg";
+import pProcess from "@/assets/p-process.jpg";
 
 const stats = [
   { value: "유일", label: "국내 고품위 규석 광산 직접 운영" },
