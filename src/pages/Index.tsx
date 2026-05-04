@@ -194,7 +194,7 @@ const Index = () => {
             className="mt-10 h-12 rounded-full bg-primary px-8 text-primary-foreground shadow-[var(--shadow-glow)] hover:bg-primary/90"
           >
             <a href="#products" onClick={() => setActiveCat("전체 제품")}>
-              제품 살펴보기
+              {t("hero.cta")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
@@ -222,20 +222,14 @@ const Index = () => {
           </div>
           <div>
             <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-              ABOUT US
+              {t("about.tag")}
             </span>
-            <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-              국내 유일의 고품위<br />규석 광산을<br />직접 개발합니다
+            <h2 className="mt-6 whitespace-pre-line text-4xl font-bold leading-tight md:text-5xl">
+              {t("about.title")}
             </h2>
-            <p className="mt-6 text-muted-foreground">
-              당사는 국내에는 현재 유일한 고품위 규석 광산을 직접 개발하여 운영 중이며, 탐사부터 채광 후 1차 공정을 자체적으로 수행하여 최고 품질의 고품위 석영을 생산하고 있습니다.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              원료 선별부터 완제품까지 운영되는 각 단계의 차별화된 품질 관리 시스템을 통해 고객의 높은 기대에 부합하는 제품을 생산하고 있습니다.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              용융실리카의 현지 공장은 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.
-            </p>
+            <p className="mt-6 text-muted-foreground">{t("about.p1")}</p>
+            <p className="mt-4 text-muted-foreground">{t("about.p2")}</p>
+            <p className="mt-4 text-muted-foreground">{t("about.p3")}</p>
             <Button
               asChild
               variant="outline"
@@ -243,7 +237,7 @@ const Index = () => {
               className="mt-8 h-12 rounded-full border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground"
             >
               <Link to="/about">
-                회사 소개 보기
+                {t("about.btn")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
