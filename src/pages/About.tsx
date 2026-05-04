@@ -11,6 +11,12 @@ import minePlant from "@/assets/mine-plant.png";
 import mineBuilding from "@/assets/mine-building.jpg";
 import pProcess from "@/assets/p-process.jpg";
 import processDiagram from "@/assets/process-diagram.png";
+import sdr1 from "@/assets/sdr-1.png";
+import sdr2 from "@/assets/sdr-2.png";
+import sdr3 from "@/assets/sdr-3.png";
+import sdr4 from "@/assets/sdr-4.png";
+import sdr5 from "@/assets/sdr-5.jpg";
+import { Beaker, Filter, FlaskConical, Gem, Snowflake, Thermometer, Droplets, Microscope } from "lucide-react";
 
 const stats = [
   { value: "유일", label: "국내 고품위 규석 광산 직접 운영" },
