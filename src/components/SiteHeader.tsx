@@ -19,6 +19,7 @@ interface SiteHeaderProps {
 
 const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
   const [scrolled, setScrolled] = useState(!transparentAtTop);
+  const { lang, setLang, t } = useLang();
 
   useEffect(() => {
     if (!transparentAtTop) {
@@ -54,10 +55,10 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
             }`}
             style={{ fontSize: "0.62rem", letterSpacing: "0.05em" }}
           >
-            규석 전문 기업
+            {t("nav.tagline")}
           </span>
         </Link>
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => {
             const isInternal = item.href.startsWith("/") && !item.href.includes("#");
             const linkClass = `relative inline-flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors duration-500 hover:text-primary-glow ${
@@ -65,20 +66,13 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
             }`;
             const inner = (
               <>
-                <span className="relative inline-block">
-                  <span className="block transition-opacity duration-200 group-hover:opacity-0">
-                    {item.en}
-                  </span>
-                  <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                    {item.ko}
-                  </span>
-                </span>
+                <span>{t(item.key)}</span>
                 {item.dropdown && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
               </>
             );
 
             return (
-              <div key={item.en} className="group relative">
+              <div key={item.key} className="group relative">
                 {isInternal ? (
                   <Link to={item.href} className={linkClass}>{inner}</Link>
                 ) : (
@@ -95,9 +89,13 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                           className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition last:border-0 hover:bg-secondary hover:text-primary-glow"
                         >
                           <div className="font-semibold">
-                            {item.dropdown === "applications" ? `${p.name} · 적용분야` : p.name}
+                            {item.dropdown === "applications"
+                              ? `${lang === "en" ? p.enName : p.name} · ${t("nav.applications")}`
+                              : (lang === "en" ? p.enName : p.name)}
                           </div>
-                          <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
+                          {lang === "ko" && (
+                            <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
+                          )}
                         </Link>
                       ))}
                     </div>
@@ -106,6 +104,34 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
               </div>
             );
           })}
+
+          {/* Language toggle */}
+          <div className={`flex items-center gap-1 rounded-full border px-1 py-1 text-xs font-bold transition-colors duration-500 ${
+            scrolled ? "border-border/60 bg-card" : "border-white/30 bg-white/10 backdrop-blur"
+          }`}>
+            <button
+              onClick={() => setLang("ko")}
+              className={`rounded-full px-2.5 py-1 transition ${
+                lang === "ko"
+                  ? "bg-primary text-primary-foreground"
+                  : scrolled ? "text-muted-foreground hover:text-foreground" : "text-white/80 hover:text-white"
+              }`}
+              aria-label="한국어"
+            >
+              KO
+            </button>
+            <button
+              onClick={() => setLang("en")}
+              className={`rounded-full px-2.5 py-1 transition ${
+                lang === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : scrolled ? "text-muted-foreground hover:text-foreground" : "text-white/80 hover:text-white"
+              }`}
+              aria-label="English"
+            >
+              EN
+            </button>
+          </div>
         </nav>
       </div>
     </header>
