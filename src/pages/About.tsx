@@ -370,26 +370,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-secondary/40 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-              PROCESS
-            </span>
-            <h2 className="mt-5 text-3xl font-bold md:text-4xl">원광에서 산업으로</h2>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
-            {milestones.map((m, i) => (
-              <div key={m.year} className="relative rounded-2xl border border-border bg-card p-6">
-                <div className="text-xs font-semibold tracking-widest text-primary">STEP {String(i + 1).padStart(2, "0")}</div>
-                <div className="mt-2 text-xl font-bold">{m.year}</div>
-                <p className="mt-3 text-sm text-muted-foreground">{m.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
