@@ -334,43 +334,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-secondary/40 py-16">
-        <div className="mx-auto grid max-w-5xl gap-6 px-6 md:grid-cols-3">
-          {stats.map((s) => (
-            <div key={s.label} className="rounded-2xl border border-border bg-card p-8 text-center">
-              <div className="text-3xl font-bold text-primary md:text-4xl">{s.value}</div>
-              <p className="mt-3 text-sm text-muted-foreground">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <div className="text-center">
-          <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-            OUR VALUES
-          </span>
-          <h2 className="mt-5 text-3xl font-bold md:text-4xl">SiLiCA를 선택해야 하는 이유</h2>
-        </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {values.map((v) => (
-            <div
-              key={v.title}
-              className="group rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-primary hover:shadow-[var(--shadow-glow)]"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                <v.icon className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-lg font-semibold">{v.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
         <h2 className="text-3xl font-bold md:text-4xl">함께할 준비가 되셨다면</h2>
