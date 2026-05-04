@@ -218,6 +218,7 @@ const About = () => {
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                 </div>
               ))}
+            </div>
           </div>
         </div>
       </section>
