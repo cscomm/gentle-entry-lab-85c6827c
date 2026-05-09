@@ -125,7 +125,7 @@ const dict: Record<string, { ko: string; en: string }> = {
 
   // About page
   "ab.hero.tag": { ko: "ABOUT US", en: "ABOUT US" },
-  "ab.hero.title": { ko: "국내 유일의 고품위 규석\n광산을 직접 개발합니다", en: "We Operate Korea's Only\nHigh-Grade Silica Mine" },
+  "ab.hero.title": { ko: "실리카는 자연이 주는\n미래를 만들어 갑니다", en: "Silica Shapes the Future\nNature Has Given Us" },
   "ab.hero.sub": { ko: "원료부터 완제품까지, 차별화된 품질로 산업의 표준을 만듭니다.", en: "From raw material to finished product — we set the industry standard with differentiated quality." },
   "ab.back": { ko: "홈으로", en: "Back to Home" },
   "ab.overview.tag": { ko: "COMPANY OVERVIEW", en: "COMPANY OVERVIEW" },
@@ -145,15 +145,15 @@ const dict: Record<string, { ko: string; en: string }> = {
   "ab.mine.tag": { ko: "JANGSU BAEKAM MINE · BAR", en: "JANGSU BAEKAM MINE · BAR" },
   "ab.mine.title": { ko: "장수백암광산", en: "Jangsu Baekam Mine" },
   "ab.mine.p1.ko": {
-    ko: "<strong>장수백암광산(BAR)</strong>의 이름은 일제강점기 때의 소재지 지명에서 유래합니다. 전라북도 장수군과 진안군 경계에 위치한 <strong>백운면(白雲面) 백암리(白巖里)</strong>에 소재 (현재 지명은 진안군 동향면 신송리)했던 바, 백암리라는 원래 지명도 <strong>백암(白巖) — '흰색 광석'</strong>이라는 별칭으로 불렸던 규석(Silica Stone, 硅石)과 장석이 생산됐던 이유에서 비롯돼 백암리(白巖里)라고 명명됐던 역사를 가지고 있습니다.",
-    en: "The name <strong>Jangsu Baekam Mine (BAR)</strong> comes from its historical location during the Japanese colonial era. It was located in <strong>Baekam-ri, Baekun-myeon</strong> at the border of Jangsu-gun and Jinan-gun in Jeollabuk-do (now Sinsong-ri, Donghyang-myeon, Jinan-gun). The name 'Baekam-ri' itself originates from <strong>'Baekam (白巖) — white stone'</strong>, the local nickname for the silica stone (Silica Stone, 硅石) and feldspar mined there.",
+    ko: "<strong>장수백암광산(BAR)</strong>의 이름은 일제강점기 때의 소재지 지명에서 유래합니다. 전라북도 장수군과 진안군 경계에 위치한 <strong>백운면(白雲面) 신송리(新松里)</strong>에 소재 (현재 지명은 진안군 동향면 신송리)했던 바, 신송리라는 원래 지명도 <strong>백암(白巖) — '흰색 광석'</strong>이라는 별칭으로 불렸던 규석(Silica Stone, 硅石)과 장석이 생산됐던 이유에서 비롯돼 명명됐던 역사를 가지고 있습니다.",
+    en: "The name <strong>Jangsu Baekam Mine (BAR)</strong> comes from its historical location during the Japanese colonial era. It was located in <strong>Sinsong-ri, Baekun-myeon</strong> at the border of Jangsu-gun and Jinan-gun in Jeollabuk-do (now Sinsong-ri, Donghyang-myeon, Jinan-gun). The local nickname <strong>'Baekam (白巖) — white stone'</strong> referred to the silica stone (Silica Stone, 硅石) and feldspar mined there.",
   },
   "ab.mine.p2": {
     ko: "과거에 이미 노천 장석광산으로 알려진 광산이며, 현재는 굴진을 통한 규석을 채광하고 있습니다. <strong>현존하는 국내 유일의 고품위 규석광산</strong>으로, 가장 큰 특징은 <strong class=\"text-primary\">최저 99.5%를 유지하는 편차 없는 순도</strong>를 보장한다는 점입니다.",
     en: "Already known as an open-pit feldspar mine in the past, today silica is extracted via tunneling. As <strong>Korea's only existing high-grade silica mine</strong>, its defining feature is <strong class=\"text-primary\">consistent purity of at least 99.5% with zero deviation</strong>.",
   },
   "ab.mine.aerial": { ko: "AERIAL VIEW", en: "AERIAL VIEW" },
-  "ab.mine.aerialSub": { ko: "광산 전경 — 장수 백암리", en: "Mine view — Jangsu Baekam-ri" },
+  "ab.mine.aerialSub": { ko: "광산 전경 — 장수 신송리", en: "Mine view — Jangsu Sinsong-ri" },
   "ab.process.tag": { ko: "MANUFACTURING PROCESS", en: "MANUFACTURING PROCESS" },
   "ab.process.title": { ko: "광산에서 첨단 산업으로", en: "From Mine to Advanced Industry" },
   "ab.process.titleAccent": { ko: "정밀한 제조 공정", en: "Precision Manufacturing" },
