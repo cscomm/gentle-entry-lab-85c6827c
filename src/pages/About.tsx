@@ -140,10 +140,6 @@ const About = () => {
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
             <div className="relative col-span-1 overflow-hidden rounded-2xl border border-border md:col-span-2 md:row-span-2">
               <img src={mineAerial} alt={tr("ab.mine.aerialSub")} className="h-full max-h-[560px] w-full object-cover transition duration-700 hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-5">
-                <span className="text-xs font-semibold tracking-widest text-white/80">{tr("ab.mine.aerial")}</span>
-                <p className="mt-1 text-base font-bold text-white">{tr("ab.mine.aerialSub")}</p>
-              </div>
             </div>
             <div className="overflow-hidden rounded-2xl border border-border">
               <img src={mineTunnel} alt={tr("ab.cap.tunnel")} className="h-full min-h-[180px] w-full object-cover transition duration-700 hover:scale-105" />

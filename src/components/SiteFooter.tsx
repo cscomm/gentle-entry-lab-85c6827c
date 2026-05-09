@@ -26,7 +26,7 @@ const SiteFooter = () => {
                 Si<span className="text-primary-glow">Li</span>CA
               </span>
               <span className="text-xs font-medium text-muted-foreground">
-                {t("nav.tagline")}
+                {t("nav.tagline")} · 실리카
               </span>
             </div>
             <nav className="flex flex-wrap items-center gap-x-5 text-sm font-medium text-foreground/80">
@@ -62,7 +62,7 @@ const SiteFooter = () => {
             Si<span className="text-primary-glow">Li</span>CA
           </span>
           <span className="text-sm font-medium text-muted-foreground">
-            {t("nav.tagline")}
+            {t("nav.tagline")} · 실리카
           </span>
         </div>
 
@@ -91,6 +91,8 @@ const SiteFooter = () => {
             <Link to="/terms" className="hover:text-primary-glow">{t("footer.terms")}</Link>
             <span className="opacity-30">|</span>
             <Link to="/privacy" className="hover:text-primary-glow">{t("footer.privacy")}</Link>
+            <span className="opacity-30">|</span>
+            <a href="mailto:contact@silica.co.kr" className="hover:text-primary-glow">contact@silica.co.kr</a>
             <span className="opacity-30">|</span>
             <span>© 2023 SiLiCA. All rights reserved.</span>
           </div>
