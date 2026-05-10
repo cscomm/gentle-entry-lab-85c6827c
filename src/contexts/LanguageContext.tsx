@@ -17,12 +17,12 @@ const dict: Record<string, { ko: string; en: string }> = {
   "nav.about": { ko: "회사소개", en: "About" },
   "nav.applications": { ko: "응용분야", en: "Applications" },
   "nav.contact": { ko: "문의하기", en: "Contact" },
-  "nav.board": { ko: "게시판", en: "Board" },
+  "nav.board": { ko: "뉴스", en: "News" },
   "nav.tagline": { ko: "규석 전문 기업", en: "Silica Specialist" },
 
   // Board
-  "board.title": { ko: "자유 게시판", en: "Community Board" },
-  "board.subtitle": { ko: "누구나 글을 남기고 의견을 나눌 수 있는 공간입니다.", en: "An open space for anyone to post and share ideas." },
+  "board.title": { ko: "뉴스", en: "News" },
+  "board.subtitle": { ko: "회사 소식과 누구나 자유롭게 의견을 나눌 수 있는 공간입니다.", en: "Company news and an open space for everyone to share." },
   "board.new": { ko: "글쓰기", en: "New Post" },
   "board.empty": { ko: "아직 게시글이 없습니다. 첫 글의 주인공이 되어보세요.", en: "No posts yet. Be the first to write." },
   "board.private": { ko: "비공개", en: "Private" },
