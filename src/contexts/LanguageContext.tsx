@@ -17,7 +17,37 @@ const dict: Record<string, { ko: string; en: string }> = {
   "nav.about": { ko: "회사소개", en: "About" },
   "nav.applications": { ko: "응용분야", en: "Applications" },
   "nav.contact": { ko: "문의하기", en: "Contact" },
+  "nav.board": { ko: "게시판", en: "Board" },
   "nav.tagline": { ko: "규석 전문 기업", en: "Silica Specialist" },
+
+  // Board
+  "board.title": { ko: "자유 게시판", en: "Community Board" },
+  "board.subtitle": { ko: "누구나 글을 남기고 의견을 나눌 수 있는 공간입니다.", en: "An open space for anyone to post and share ideas." },
+  "board.new": { ko: "글쓰기", en: "New Post" },
+  "board.empty": { ko: "아직 게시글이 없습니다. 첫 글의 주인공이 되어보세요.", en: "No posts yet. Be the first to write." },
+  "board.private": { ko: "비공개", en: "Private" },
+  "board.public": { ko: "공개", en: "Public" },
+  "board.views": { ko: "조회", en: "Views" },
+  "board.author": { ko: "작성자", en: "Author" },
+  "board.date": { ko: "작성일", en: "Date" },
+  "board.back": { ko: "← 목록으로", en: "← Back to list" },
+  "board.delete": { ko: "삭제", en: "Delete" },
+  "board.deleteConfirm": { ko: "비밀번호를 입력해 주세요.", en: "Enter password to delete." },
+  "board.unlock": { ko: "잠금 해제", en: "Unlock" },
+  "board.lockedDesc": { ko: "이 글은 비공개입니다. 비밀번호를 입력하면 내용을 볼 수 있습니다.", en: "This post is private. Enter the password to view its content." },
+  "board.wrongPw": { ko: "비밀번호가 일치하지 않습니다.", en: "Incorrect password." },
+  "board.deleted": { ko: "게시글이 삭제되었습니다.", en: "Post deleted." },
+  "board.created": { ko: "게시글이 등록되었습니다.", en: "Post created." },
+
+  // Compose form
+  "form.title": { ko: "제목", en: "Title" },
+  "form.content": { ko: "내용", en: "Content" },
+  "form.author": { ko: "작성자 이름", en: "Author Name" },
+  "form.password": { ko: "비밀번호", en: "Password" },
+  "form.passwordHint": { ko: "수정·삭제 및 비공개 글 열람 시 사용됩니다.", en: "Used to delete/manage this post and unlock private content." },
+  "form.visibility": { ko: "공개 설정", en: "Visibility" },
+  "form.publish": { ko: "등록", en: "Publish" },
+  "form.cancel": { ko: "취소", en: "Cancel" },
 
   // Hero
   "hero.cta": { ko: "제품 살펴보기", en: "Explore Products" },
