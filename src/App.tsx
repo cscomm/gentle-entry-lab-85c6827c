@@ -12,6 +12,7 @@ import Privacy from "./pages/Privacy.tsx";
 import Board from "./pages/Board.tsx";
 import BoardNew from "./pages/BoardNew.tsx";
 import BoardDetail from "./pages/BoardDetail.tsx";
+import Unsubscribe from "./pages/Unsubscribe.tsx";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/board" element={<Board />} />
           <Route path="/board/new" element={<BoardNew />} />
           <Route path="/board/:id" element={<BoardDetail />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
