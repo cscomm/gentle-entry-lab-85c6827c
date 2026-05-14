@@ -117,21 +117,41 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
-      const formData = new FormData(e.currentTarget);
-      const response = await fetch("https://formsubmit.co/ajax/cscomm@naver.com", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-      const result = await response.json().catch(() => null);
+      const inquiryId = crypto.randomUUID();
 
-      if (!response.ok || result?.success === "false") {
-        throw new Error(result?.message || "메일 전송에 실패했습니다.");
+      // 1) 관리자에게 알림 메일
+      const adminRes = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          recipientEmail: "cscomm@naver.com",
+          idempotencyKey: `contact-notify-${inquiryId}`,
+          templateData: {
+            name: form.name,
+            phone: form.phone,
+            email: form.email,
+            company: form.company,
+            message: form.message,
+          },
+        },
+      });
+      if (adminRes.error) throw adminRes.error;
+
+      // 2) 고객에게 접수 확인 메일 (이메일 입력 시에만)
+      if (form.email) {
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "contact-confirmation",
+            recipientEmail: form.email,
+            idempotencyKey: `contact-confirm-${inquiryId}`,
+            templateData: { name: form.name, message: form.message },
+          },
+        });
       }
 
       setForm({ name: "", phone: "", email: "", company: "", message: "" });
       toast({ title: "문의가 전송되었습니다", description: "빠른 시일 내에 답변드리겠습니다." });
     } catch (error) {
+      console.error("Contact form send failed", error);
       toast({
         title: "문의 전송에 실패했습니다",
         description: "잠시 후 다시 시도하시거나 이메일로 직접 문의해 주세요.",
