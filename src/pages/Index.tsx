@@ -340,8 +340,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Applications - 임시 숨김 (상세페이지 작업 중) */}
-      <section id="applications" className="mx-auto hidden max-w-7xl px-6 py-24 md:py-32">
+      {/* Applications */}
+      <section id="applications" className="mx-auto max-w-7xl px-6 py-24 md:py-32 scroll-mt-24">
         <div className="text-center">
           <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
             응용 분야
@@ -351,7 +351,7 @@ const Index = () => {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           {applications.map((a) => (
             <article
               key={a.title}
