@@ -37,16 +37,16 @@ const productCategories: { label: string; en: string; slug?: string; href?: stri
   { label: "A등급 용융실리카", en: "Grade A Fused Silica", slug: "fused-silica-block" },
   { label: "B등급 용융실리카", en: "Grade B Fused Silica", slug: "fused-silica-sand" },
   { label: "C등급 용융실리카", en: "Grade C Fused Silica", slug: "fused-silica-powder" },
-  { label: "천연 고순도규석", en: "Natural High-Purity Quartz", slug: "high-purity-quartz" },
   { label: "실리카겔", en: "Silica Gel", href: "/products/silica-gel" },
+  { label: "천연 고순도규석", en: "Natural High-Purity Quartz", slug: "high-purity-quartz" },
 ];
 
 const products = [
   { img: gradeA, slug: "fused-silica-block", title: "A등급 용융실리카", enTitle: "Grade A Fused Silica", desc: "초고순도 100% 무정형 용융실리카 — 반도체·광학·항공/방산 전용", enDesc: "Ultra-high-purity 100% amorphous fused silica — for semiconductor, optics, aerospace & defense.", cat: "A등급 용융실리카" },
   { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융실리카", enTitle: "Grade B Fused Silica", desc: "정밀 주조 및 첨단 산업용 고품질 용융실리카", enDesc: "High-quality fused silica for precision casting and advanced industries.", cat: "B등급 용융실리카" },
   { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융실리카", enTitle: "Grade C Fused Silica", desc: "산업용 일반 공정에 최적화된 경제형 용융실리카", enDesc: "Economical fused silica optimized for general industrial processes.", cat: "C등급 용융실리카" },
+  { img: silicaGelHero, slug: "silica-gel", title: "실리카겔", enTitle: "Silica Gel", desc: "고순도 실리카겔 · 미분 실리카 · 안티블로킹 · 소광제 등 전 라인업", enDesc: "Full lineup of high-purity silica gel, microsilica, anti-blocking and matting agents.", cat: "실리카겔" },
   { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", enTitle: "Natural High-Purity Quartz", desc: "엄선된 광원에서 채광한 고순도 규석", enDesc: "High-purity quartz mined from carefully selected ore deposits.", cat: "천연 고순도규석" },
-  { img: silicaGelHero, slug: "silica-gel", title: "실리카겔", enTitle: "Silica Gel", desc: "고순도 실리카겔 · 미분 실리카 · 안티블로킹 · 소광제 등 전 라인업", enDesc: "Full lineup of high-purity silica gel, microsilica, anti-blocking and matting agents.", cat: "실리카겔", isCategory: true },
 ];
 
 const applications = [
