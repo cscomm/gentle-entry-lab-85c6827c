@@ -118,7 +118,8 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                         .map((p) => (
                           <Link
                             key={p.slug}
-                            to={`/products/${p.slug}`}
+                            to={`/products/${p.slug}#applications`}
+
                             className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition hover:bg-secondary hover:text-primary-glow"
                           >
                             <div className="font-semibold">{lang === "en" ? p.enName : p.name}</div>
