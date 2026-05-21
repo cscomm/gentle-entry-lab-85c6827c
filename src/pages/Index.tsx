@@ -31,12 +31,13 @@ const navItems = [
   { en: "Contact", ko: "문의하기", href: "#contact" },
 ];
 
-const productCategories: { label: string; en: string; slug?: string }[] = [
+const productCategories: { label: string; en: string; slug?: string; href?: string }[] = [
   { label: "전체 제품", en: "All Products" },
   { label: "A등급 용융실리카", en: "Grade A Fused Silica", slug: "fused-silica-block" },
   { label: "B등급 용융실리카", en: "Grade B Fused Silica", slug: "fused-silica-sand" },
   { label: "C등급 용융실리카", en: "Grade C Fused Silica", slug: "fused-silica-powder" },
   { label: "천연 고순도규석", en: "Natural High-Purity Quartz", slug: "high-purity-quartz" },
+  { label: "실리카겔", en: "Silica Gel", href: "/products/silica-gel" },
 ];
 
 const products = [
@@ -278,14 +279,21 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
             {productCategories.map((cat) => {
               const isActive = activeCat === cat.label;
-              const className = `rounded-full border px-5 py-2 text-sm transition ${
+              const className = `rounded-full border px-3.5 py-1.5 text-xs md:text-sm transition whitespace-nowrap ${
                 isActive
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground"
               }`;
+              if (cat.href) {
+                return (
+                  <Link key={cat.label} to={cat.href} className={className}>
+                    {lang === "en" ? cat.en : `${cat.label} · ${cat.en}`}
+                  </Link>
+                );
+              }
               if (cat.slug) {
                 return (
                   <Link key={cat.label} to={`/products/${cat.slug}`} className={className}>

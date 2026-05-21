@@ -65,6 +65,8 @@ const APP_VISUALS: Record<string, { img?: string; items: string[] }> = {
   "전자재료": { img: hpqElec, items: ["절연 필러", "에폭시 수지 배합재", "저전압 절연 소재"] },
   
   "나노 가공": { img: hpqNano, items: ["나노 실리카 원료", "실리카 파우더", "고부가 화학 제품"] },
+  // Silica Gel
+  "실리카겔": { items: ["미분 실리카 (Microsilica)", "안티블로킹제 (Anti-blocking)", "소광제 (Matting Agent)", "흡착·건조용 실리카겔", "내수 실리카겔 (FNG)"] },
 };
 
 const ProductDetail = () => {
@@ -97,7 +99,7 @@ const ProductDetail = () => {
     );
   }
 
-  const others = productCatalog.filter((p) => p.slug !== product.slug);
+  const others = productCatalog.filter((p) => p.slug !== product.slug && (p.category ?? "quartz") === (product.category ?? "quartz"));
   const isGradeA = product.slug === "fused-silica-block";
 
   return (
