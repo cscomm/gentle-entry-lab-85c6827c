@@ -152,6 +152,7 @@ const dict: Record<string, { ko: string; en: string }> = {
   "app.고급 유리": { ko: "고급 유리", en: "Premium Glass" },
   "app.전자재료": { ko: "전자재료", en: "Electronic Materials" },
   "app.나노 가공": { ko: "나노 가공", en: "Nano Processing" },
+  "app.실리카겔": { ko: "실리카겔 (Silica Gel)", en: "Silica Gel" },
 
   // About page
   "ab.hero.tag": { ko: "ABOUT US", en: "ABOUT US" },
