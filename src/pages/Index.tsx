@@ -311,7 +311,7 @@ const Index = () => {
             })}
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             {filteredProducts.map((p) => (
               <Link
                 key={p.title}
@@ -326,11 +326,11 @@ const Index = () => {
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold">{lang === "en" ? p.enTitle : p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{lang === "en" ? p.enDesc : p.desc}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm text-primary-glow transition group-hover:gap-3">
-                    {t("products.detail")} <ArrowRight className="h-4 w-4" />
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold leading-snug">{lang === "en" ? p.enTitle : p.title}</h3>
+                  <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{lang === "en" ? p.enDesc : p.desc}</p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary-glow transition group-hover:gap-2">
+                    {t("products.detail")} <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
               </Link>
