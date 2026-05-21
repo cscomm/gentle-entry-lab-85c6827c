@@ -83,22 +83,29 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                 {item.dropdown && (
                   <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                     <div className="overflow-hidden rounded-xl border border-border bg-background/95 shadow-xl backdrop-blur-md">
-                      {productCatalog.map((p) => (
-                        <Link
-                          key={p.slug}
-                          to={item.dropdown === "applications" ? `/products/${p.slug}#applications` : `/products/${p.slug}`}
-                          className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition last:border-0 hover:bg-secondary hover:text-primary-glow"
-                        >
-                          <div className="font-semibold">
-                            {item.dropdown === "applications"
-                              ? `${lang === "en" ? p.enName : p.name} · ${t("nav.applications")}`
-                              : (lang === "en" ? p.enName : p.name)}
-                          </div>
-                          {lang === "ko" && (
-                            <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
-                          )}
-                        </Link>
-                      ))}
+                      {productCatalog
+                        .filter((p) => (p.category ?? "quartz") === "quartz")
+                        .map((p) => (
+                          <Link
+                            key={p.slug}
+                            to={`/products/${p.slug}`}
+                            className="block border-b border-border/60 px-5 py-3 text-sm text-foreground transition hover:bg-secondary hover:text-primary-glow"
+                          >
+                            <div className="font-semibold">{lang === "en" ? p.enName : p.name}</div>
+                            {lang === "ko" && (
+                              <div className="mt-0.5 text-xs text-muted-foreground">{p.enName}</div>
+                            )}
+                          </Link>
+                        ))}
+                      <Link
+                        to="/products/silica-gel"
+                        className="block px-5 py-3 text-sm text-foreground transition hover:bg-secondary hover:text-primary-glow"
+                      >
+                        <div className="font-semibold">{lang === "en" ? "Silica Gel" : "실리카겔"}</div>
+                        {lang === "ko" && (
+                          <div className="mt-0.5 text-xs text-muted-foreground">Silica Gel</div>
+                        )}
+                      </Link>
                     </div>
                   </div>
                 )}
