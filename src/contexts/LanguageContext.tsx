@@ -54,8 +54,8 @@ const dict: Record<string, { ko: string; en: string }> = {
   "hero1.title": { ko: "Silica: Nature's Gift to the Future.", en: "Silica: Nature's Gift to the Future." },
   "hero1.sub": { ko: "Technology that Leads Industry", en: "Technology that Leads Industry" },
   "hero1.desc": {
-    ko: "용융실리카와 고품위 실리카. 다양한 산업에 최적의 솔루션을 제공합니다.",
-    en: "Fused silica and high-purity silica — optimal solutions for every industry.",
+    ko: "용융실리카와 실리카겔. 다양한 산업에 최적의 솔루션을 제공합니다.",
+    en: "Fused silica and silica gel — optimal solutions for every industry.",
   },
   "hero2.title": { ko: "High-Purity Silica Powder", en: "High-Purity Silica Powder" },
   "hero2.sub": { ko: "A New Standard for Precision Industries", en: "A New Standard for Precision Industries" },
