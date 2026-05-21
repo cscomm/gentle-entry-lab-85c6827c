@@ -80,7 +80,7 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                   <a href={item.href} className={linkClass}>{inner}</a>
                 )}
 
-                {item.dropdown && (
+                {item.dropdown === "products" && (
                   <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                     <div className="overflow-hidden rounded-xl border border-border bg-background/95 shadow-xl backdrop-blur-md">
                       {productCatalog
@@ -106,6 +106,33 @@ const SiteHeader = ({ transparentAtTop = false }: SiteHeaderProps) => {
                           <div className="mt-0.5 text-xs text-muted-foreground">Silica Gel</div>
                         )}
                       </Link>
+                    </div>
+                  </div>
+                )}
+
+                {item.dropdown === "applications" && (
+                  <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-xl border border-border bg-background/95 shadow-xl backdrop-blur-md">
+                      {[
+                        { ko: "전자 산업", en: "Electronics", to: "/#applications" },
+                        { ko: "광학 산업", en: "Optics", to: "/#applications" },
+                        { ko: "태양광 산업", en: "Solar", to: "/#applications" },
+                        { ko: "전자 소재", en: "Electronic Materials", to: "/#applications" },
+                        { ko: "실리카겔", en: "Silica Gel", to: "/applications/silica-gel" },
+                      ].map((a, i, arr) => (
+                        <Link
+                          key={a.en}
+                          to={a.to}
+                          className={`block px-5 py-3 text-sm text-foreground transition hover:bg-secondary hover:text-primary-glow ${
+                            i < arr.length - 1 ? "border-b border-border/60" : ""
+                          }`}
+                        >
+                          <div className="font-semibold">{lang === "en" ? a.en : a.ko}</div>
+                          {lang === "ko" && (
+                            <div className="mt-0.5 text-xs text-muted-foreground">{a.en}</div>
+                          )}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}
