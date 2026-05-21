@@ -50,11 +50,20 @@ const products = [
 ];
 
 const applications = [
-  { img: aSemi, title: "전자 산업", desc: "전자 웨이퍼 제조용 고순도 석영 소재" },
-  { img: aOptic, title: "광학 산업", desc: "광학 렌즈 및 정밀 광학 부품용 석영 소재" },
-  { img: aSolar, title: "태양광 산업", desc: "태양광 패널 생산에 적합한 석영 소재" },
-  { img: aElec, title: "전자 소재", desc: "전자 소재 및 패키지 제품용 석영 소재" },
-  { img: silicaGelHero, title: "실리카겔", desc: "흡습·건조·코팅·플라스틱 등 전방위 산업용 실리카겔" },
+  { img: aSemi, title: "전자 산업", en: "Electronics", desc: "전자 웨이퍼 제조용 고순도 석영 소재", enDesc: "High-purity quartz for semiconductor wafer manufacturing." },
+  { img: aOptic, title: "광학 산업", en: "Optics", desc: "광학 렌즈 및 정밀 광학 부품용 석영 소재", enDesc: "Quartz for optical lenses and precision optics." },
+  { img: aSolar, title: "태양광 산업", en: "Solar", desc: "태양광 패널 생산에 적합한 석영 소재", enDesc: "Quartz materials for solar panel production." },
+  { img: aElec, title: "전자 소재", en: "Electronic Materials", desc: "전자 소재 및 패키지 제품용 석영 소재", enDesc: "Quartz for electronic materials and packaging." },
+  { img: silicaGelHero, title: "실리카겔", en: "Silica Gel", desc: "흡습·건조·코팅·플라스틱 등 전방위 산업용 실리카겔", enDesc: "Silica gel for drying, coating, plastics and beyond.", href: "/applications/silica-gel" },
+];
+
+const applicationCategories: { label: string; en: string; href?: string }[] = [
+  { label: "전체 응용분야", en: "All Applications" },
+  { label: "전자 산업", en: "Electronics" },
+  { label: "광학 산업", en: "Optics" },
+  { label: "태양광 산업", en: "Solar" },
+  { label: "전자 소재", en: "Electronic Materials" },
+  { label: "실리카겔", en: "Silica Gel", href: "/applications/silica-gel" },
 ];
 
 const news = [
