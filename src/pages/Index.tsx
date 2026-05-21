@@ -76,6 +76,7 @@ const Index = () => {
   const { toast } = useToast();
   const { t, lang } = useLang();
   const [activeCat, setActiveCat] = useState("전체 제품");
+  const [activeApp, setActiveApp] = useState("전체 응용분야");
   const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
