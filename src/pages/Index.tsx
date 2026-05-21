@@ -18,6 +18,7 @@ import gradeA from "@/assets/grade-a-hero.png";
 import gradeB from "@/assets/grade-b-silica.png";
 import gradeC from "@/assets/grade-c-silica.png";
 import pProcess from "@/assets/p-process.jpg";
+import silicaGelHero from "@/assets/silica-gel-hero.jpg";
 import aSemi from "@/assets/a-semicon.jpg";
 import aOptic from "@/assets/a-optics.jpg";
 import aSolar from "@/assets/a-display.jpg";
