@@ -6,6 +6,16 @@ import gradeC from "@/assets/grade-c-silica.png";
 import gradeCDetail from "@/assets/grade-c-detail.png";
 import pProcess from "@/assets/p-process.jpg";
 import hpqDetail from "@/assets/hpq-detail.jpg";
+import sgMicrosilica from "@/assets/sg-microsilica.jpg";
+import sgAntiblocking from "@/assets/sg-antiblocking.jpg";
+import sgMatting from "@/assets/sg-matting.jpg";
+import sgLargePore from "@/assets/sg-large-pore.jpg";
+import sgFng from "@/assets/sg-fng.jpg";
+import sgCoarse from "@/assets/sg-coarse.jpg";
+import sgTypeA from "@/assets/sg-type-a.jpg";
+import sgTypeB from "@/assets/sg-type-b.jpg";
+
+export type ProductCategory = "quartz" | "silica-gel";
 
 export type ProductDetail = {
   slug: string;
@@ -15,6 +25,7 @@ export type ProductDetail = {
   description: string;
   image: string;
   detailImage?: string;
+  category?: ProductCategory;
   features: { title: string; desc: string }[];
   specs: { label: string; value: string; note?: string }[];
   applications: string[];
