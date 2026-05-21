@@ -37,7 +37,7 @@ const SilicaGelCategory = () => {
 
       {/* Product grid */}
       <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           {products.map((p) => (
             <Link
               key={p.slug}
