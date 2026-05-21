@@ -18,6 +18,7 @@ import gradeA from "@/assets/grade-a-hero.png";
 import gradeB from "@/assets/grade-b-silica.png";
 import gradeC from "@/assets/grade-c-silica.png";
 import pProcess from "@/assets/p-process.jpg";
+import silicaGelHero from "@/assets/silica-gel-hero.jpg";
 import aSemi from "@/assets/a-semicon.jpg";
 import aOptic from "@/assets/a-optics.jpg";
 import aSolar from "@/assets/a-display.jpg";
@@ -45,6 +46,7 @@ const products = [
   { img: gradeB, slug: "fused-silica-sand", title: "B등급 용융실리카", enTitle: "Grade B Fused Silica", desc: "정밀 주조 및 첨단 산업용 고품질 용융실리카", enDesc: "High-quality fused silica for precision casting and advanced industries.", cat: "B등급 용융실리카" },
   { img: gradeC, slug: "fused-silica-powder", title: "C등급 용융실리카", enTitle: "Grade C Fused Silica", desc: "산업용 일반 공정에 최적화된 경제형 용융실리카", enDesc: "Economical fused silica optimized for general industrial processes.", cat: "C등급 용융실리카" },
   { img: pProcess, slug: "high-purity-quartz", title: "천연 고순도규석", enTitle: "Natural High-Purity Quartz", desc: "엄선된 광원에서 채광한 고순도 규석", enDesc: "High-purity quartz mined from carefully selected ore deposits.", cat: "천연 고순도규석" },
+  { img: silicaGelHero, slug: "silica-gel", title: "실리카겔", enTitle: "Silica Gel", desc: "고순도 실리카겔 · 미분 실리카 · 안티블로킹 · 소광제 등 전 라인업", enDesc: "Full lineup of high-purity silica gel, microsilica, anti-blocking and matting agents.", cat: "실리카겔", isCategory: true },
 ];
 
 const applications = [
@@ -309,7 +311,7 @@ const Index = () => {
             })}
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             {filteredProducts.map((p) => (
               <Link
                 key={p.title}
@@ -324,11 +326,11 @@ const Index = () => {
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold">{lang === "en" ? p.enTitle : p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{lang === "en" ? p.enDesc : p.desc}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm text-primary-glow transition group-hover:gap-3">
-                    {t("products.detail")} <ArrowRight className="h-4 w-4" />
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold leading-snug">{lang === "en" ? p.enTitle : p.title}</h3>
+                  <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{lang === "en" ? p.enDesc : p.desc}</p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary-glow transition group-hover:gap-2">
+                    {t("products.detail")} <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
               </Link>
