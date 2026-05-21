@@ -54,6 +54,7 @@ const applications = [
   { img: aOptic, title: "광학 산업", desc: "광학 렌즈 및 정밀 광학 부품용 석영 소재" },
   { img: aSolar, title: "태양광 산업", desc: "태양광 패널 생산에 적합한 석영 소재" },
   { img: aElec, title: "전자 소재", desc: "전자 소재 및 패키지 제품용 석영 소재" },
+  { img: silicaGelHero, title: "실리카겔", desc: "흡습·건조·코팅·플라스틱 등 전방위 산업용 실리카겔" },
 ];
 
 const news = [
@@ -339,8 +340,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Applications - 임시 숨김 (상세페이지 작업 중) */}
-      <section id="applications" className="mx-auto hidden max-w-7xl px-6 py-24 md:py-32">
+      {/* Applications */}
+      <section id="applications" className="mx-auto max-w-7xl px-6 py-24 md:py-32 scroll-mt-24">
         <div className="text-center">
           <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
             응용 분야
@@ -350,7 +351,7 @@ const Index = () => {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           {applications.map((a) => (
             <article
               key={a.title}
