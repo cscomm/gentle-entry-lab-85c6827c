@@ -28,6 +28,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products/silica-gel" element={<SilicaGelCategory />} />
+          <Route path="/applications/silica-gel" element={<SilicaGelApplications />} />
           <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
