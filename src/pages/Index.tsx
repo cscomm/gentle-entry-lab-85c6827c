@@ -350,82 +350,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Applications */}
-      <section id="applications" className="mx-auto max-w-7xl px-6 py-24 md:py-32 scroll-mt-24">
-        <div className="text-center">
-          <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs tracking-widest text-muted-foreground">
-            응용 분야
-          </span>
-          <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-            전자부터 광학까지<br />다양한 산업에 공급합니다
-          </h2>
-        </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
-          {applicationCategories.map((cat) => {
-            const isActive = activeApp === cat.label;
-            const className = `rounded-full border px-3.5 py-1.5 text-xs md:text-sm transition whitespace-nowrap ${
-              isActive
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground"
-            }`;
-            if (cat.href) {
-              return (
-                <Link key={cat.label} to={cat.href} className={className}>
-                  {lang === "en" ? cat.en : `${cat.label} · ${cat.en}`}
-                </Link>
-              );
-            }
-            return (
-              <button key={cat.label} onClick={() => setActiveApp(cat.label)} className={className}>
-                {lang === "en" ? cat.en : cat.label}
-              </button>
-            );
-          })}
-        </div>
 
-        <div className="mt-10 grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-          {(activeApp === "전체 응용분야"
-            ? applications
-            : applications.filter((a) => a.title === activeApp)
-          ).map((a) => {
-            const inner = (
-              <>
-                <img
-                  src={a.img}
-                  alt={a.title}
-                  loading="lazy"
-                  className="h-72 w-full object-cover transition duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-                <div className="absolute bottom-0 p-6">
-                  <h3 className="text-xl font-semibold">{lang === "en" ? a.en : a.title}</h3>
-                  <p className="mt-2 text-sm text-foreground/80">{lang === "en" ? a.enDesc : a.desc}</p>
-                </div>
-              </>
-            );
-            const cls = "group relative block overflow-hidden rounded-2xl border border-border transition hover:border-primary";
-            return a.href ? (
-              <Link key={a.title} to={a.href} className={cls}>{inner}</Link>
-            ) : (
-              <article key={a.title} className={cls}>{inner}</article>
-            );
-          })}
-        </div>
-
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {news.map((n) => (
-            <a
-              key={n.title}
-              href="#"
-              className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-5 py-2.5 text-sm transition hover:border-primary"
-            >
-              <span className="text-foreground">{n.title}</span>
-              <span className="text-xs text-muted-foreground">{n.date}</span>
-            </a>
-          ))}
-        </div>
-      </section>
 
       {/* Contact — refined dark panel */}
       <section
