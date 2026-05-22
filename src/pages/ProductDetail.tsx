@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { getProductBySlug, productCatalog } from "@/data/products";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import ProductCategoryBar from "@/components/ProductCategoryBar";
 import { useLang } from "@/contexts/LanguageContext";
 import aSemi from "@/assets/a-semicon.jpg";
 import aOptic from "@/assets/a-optics.jpg";
@@ -106,6 +107,15 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader transparentAtTop />
+
+      {/* Category bar (sticky under header) */}
+      <div className="sticky top-[68px] z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
+        <div className="mx-auto max-w-7xl overflow-x-auto px-4 py-3">
+          <ProductCategoryBar activeSlug={product.slug} />
+        </div>
+      </div>
+
+
 
       {/* Hero */}
       <section className="relative overflow-hidden">

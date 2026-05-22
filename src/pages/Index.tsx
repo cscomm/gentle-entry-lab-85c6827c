@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { productCatalog } from "@/data/products";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import ProductCategoryBar from "@/components/ProductCategoryBar";
 import { useLang } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -292,34 +293,8 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-2">
-            {productCategories.map((cat) => {
-              const isActive = activeCat === cat.label;
-              const className = `rounded-full border px-3.5 py-1.5 text-xs md:text-sm transition whitespace-nowrap ${
-                isActive
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground"
-              }`;
-              if (cat.href) {
-                return (
-                  <Link key={cat.label} to={cat.href} className={className}>
-                    {lang === "en" ? cat.en : `${cat.label} · ${cat.en}`}
-                  </Link>
-                );
-              }
-              if (cat.slug) {
-                return (
-                  <Link key={cat.label} to={`/products/${cat.slug}`} className={className}>
-                    {lang === "en" ? cat.en : cat.label}
-                  </Link>
-                );
-              }
-              return (
-                <button key={cat.label} onClick={() => setActiveCat(cat.label)} className={className}>
-                  {lang === "en" ? cat.en : cat.label}
-                </button>
-              );
-            })}
+          <div className="mt-10 overflow-x-auto">
+            <ProductCategoryBar />
           </div>
 
           <div className="mt-12 grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
