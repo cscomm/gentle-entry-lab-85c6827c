@@ -108,12 +108,6 @@ const ProductDetail = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader transparentAtTop />
 
-      {/* Category bar (sticky under header) */}
-      <div className="sticky top-[68px] z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl overflow-x-auto px-4 py-3">
-          <ProductCategoryBar activeSlug={product.slug} />
-        </div>
-      </div>
 
 
 
