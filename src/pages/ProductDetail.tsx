@@ -125,6 +125,13 @@ const ProductDetail = () => {
         </div>
       </section>
 
+      {/* Category bar in the empty space below hero */}
+      <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-14">
+        <div className="overflow-x-auto rounded-xl border border-border/60 bg-card/60 px-4 py-3 backdrop-blur-sm">
+          <ProductCategoryBar activeSlug={product.slug} />
+        </div>
+      </div>
+
       {/* Overview + Spec Sheet */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-5">
@@ -155,9 +162,6 @@ const ProductDetail = () => {
 
           {/* Spec Sheet */}
           <div className="lg:col-span-3">
-            <div className="mb-6 overflow-x-auto rounded-xl border border-border/60 bg-card/60 px-4 py-3 backdrop-blur-sm">
-              <ProductCategoryBar activeSlug={product.slug} />
-            </div>
             <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/30 shadow-sm">
               <div className="flex items-center justify-between border-b border-border bg-foreground px-6 py-4 text-background">
                 <div>
