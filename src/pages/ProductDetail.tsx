@@ -108,12 +108,6 @@ const ProductDetail = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader transparentAtTop />
 
-      {/* Category bar (sticky under header) */}
-      <div className="sticky top-[68px] z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl overflow-x-auto px-4 py-3">
-          <ProductCategoryBar activeSlug={product.slug} />
-        </div>
-      </div>
 
 
 
@@ -161,6 +155,9 @@ const ProductDetail = () => {
 
           {/* Spec Sheet */}
           <div className="lg:col-span-3">
+            <div className="mb-6 overflow-x-auto rounded-xl border border-border/60 bg-card/60 px-4 py-3 backdrop-blur-sm">
+              <ProductCategoryBar activeSlug={product.slug} />
+            </div>
             <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/30 shadow-sm">
               <div className="flex items-center justify-between border-b border-border bg-foreground px-6 py-4 text-background">
                 <div>
