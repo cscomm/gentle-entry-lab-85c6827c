@@ -170,8 +170,8 @@ const dict: Record<string, { ko: string; en: string }> = {
     en: "Our differentiated QC system at every stage — from raw-material sorting to finished products — delivers results that meet our customers' highest expectations.",
   },
   "ab.overview.p3": {
-    ko: "용융실리카의 현지 공장은 ISO 9001 품질 관리 시스템 인증을 보유한 작업 환경에서 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 등 다양한 산업 분야에 최적의 솔루션을 제공합니다.",
-    en: "Our ISO 9001-certified fused-silica facility supplies optimal solutions for electronics, industrial coatings, ceramics, refractories, casting, solar, and energy materials.",
+    ko: "실리카의 현지 공장은 글로벌 업체들에게 원료을 공급하고 있는 오랜 경험과 축적된 기술력을 기반으로 ISO 9001 등의 품질 관리 시스템과 작업 환경을 보유 하고 있습니다. 지속적으로 발전 하는 기술의 빠른 적용을 통하여 전자 소재 · 산업용 코팅 · 세라믹 · 내화재 · 주조 · 태양광 및 에너지 소재 및 각종 실리카 첨가물을 다양한 산업분야 전반에 최적의 실리카 솔루션을 제공합니다.",
+    en: "Our ISO 9001-certified facility draws on long experience supplying raw materials to global companies. By rapidly applying evolving technology, we provide optimal silica solutions — including silica additives — for electronics, industrial coatings, ceramics, refractories, casting, solar, and energy materials across all industries.",
   },
   "ab.mine.tag": { ko: "JANGSU BAEKAM MINE · BAR", en: "JANGSU BAEKAM MINE · BAR" },
   "ab.mine.title": { ko: "장수백암광산", en: "Jangsu Baekam Mine" },
