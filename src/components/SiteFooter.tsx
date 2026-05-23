@@ -10,7 +10,6 @@ const SiteFooter = () => {
     { label: t("nav.home"), to: "/#home", external: true },
     { label: t("footer.products.title"), to: "/#products", external: true },
     { label: t("footer.about.title"), to: "/about", external: false },
-    { label: t("footer.applications.title"), to: "/#applications", external: true },
     { label: t("nav.board"), to: "/board", external: false },
     { label: t("nav.contact"), to: "/#contact", external: true },
   ];
