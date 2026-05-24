@@ -54,8 +54,8 @@ const dict: Record<string, { ko: string; en: string }> = {
   "hero1.title": { ko: "Silica: Nature's Gift to the Future.", en: "Silica: Nature's Gift to the Future." },
   "hero1.sub": { ko: "Technology that Leads Industry", en: "Technology that Leads Industry" },
   "hero1.desc": {
-    ko: "용융실리카와 실리카겔. 다양한 산업에 최적의 솔루션을 제공합니다.",
-    en: "Fused silica and silica gel — optimal solutions for every industry.",
+    ko: "반도체·광학·태양광·내화재·의료 산업에 최적화된 용융실리카, 실리카 겔, 침전실리카, 흄드실리카, 나노실리카까지 — 다양한 고순도 실리카 소재를 한 곳에서 공급합니다.",
+    en: "From fused silica, silica gel, precipitated silica, fumed silica, to nano silica — we supply a wide range of high-purity silica materials optimized for semiconductor, optical, solar, refractory, and medical industries.",
   },
   "hero2.title": { ko: "High-Purity Silica Powder", en: "High-Purity Silica Powder" },
   "hero2.sub": { ko: "A New Standard for Precision Industries", en: "A New Standard for Precision Industries" },
