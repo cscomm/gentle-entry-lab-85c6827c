@@ -20,7 +20,7 @@ type Route = {
   body: string;        // inner HTML for SEO content
 };
 
-const productRoutes: Route[] = [
+export const productRoutes: Route[] = [
   {
     path: "/products/fused-silica-block",
     title: "A등급 용융실리카 (Ultra-High Purity Fused Silica) | SiLiCA",
@@ -203,7 +203,7 @@ const productRoutes: Route[] = [
 
 ];
 
-const routes: Route[] = [
+export const routes: Route[] = [
   {
     path: "/about",
     title: "회사소개 — 국내 유일 고품위 규석 광산 직영 | SiLiCA",
@@ -305,4 +305,6 @@ function main() {
   console.log(`[prerender] generated ${count} static HTML files.`);
 }
 
-main();
+if (import.meta.main) {
+  main();
+}
