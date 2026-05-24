@@ -133,6 +133,74 @@ const productRoutes: Route[] = [
         <li>B형 실리카겔 (Type B) — 기공 4.5–7.0 nm</li>
       </ul>`,
   },
+  // ───────── 실리카겔 하위 제품 (각 페이지 고유 canonical/title/description) ─────────
+  ...(
+    [
+      {
+        slug: "silica-gel-microsilica",
+        ko: "미분 실리카 (Microsilica)",
+        en: "Micronized Silica Powder",
+        desc: "고순도 SiO₂ 기반 초미세 분말(3–10µm). 충진재·보강재·고활성 무기 정밀 소재로 사용되는 SiLiCA 미분 실리카(Microsilica).",
+        body: `<p>미분 실리카(Micronized Silica Powder)는 고순도 이산화규소(SiO₂)를 특수 공정으로 가공한 초미세 분말로, 입자 크기 3–10µm의 고활성·다공성 무기 정밀 소재입니다.</p><h2>주요 스펙</h2><ul><li>입자 크기: 3 – 10 µm</li><li>포장/규격: 고객 맞춤 제작</li></ul><h2>주요 용도</h2><p>고분자 충진·보강재, 고기능성 코팅, 정밀 무기 소재.</p>`,
+      },
+      {
+        slug: "silica-gel-anti-blocking",
+        ko: "플라스틱 안티블로킹제 (Anti-blocking Agent)",
+        en: "Anti-blocking Agent",
+        desc: "SiO₂ 99% 고순도 실리카 기반 안티블로킹제. 입자 2–10µm, 비표면적 20–380 m²/g로 필름·시트의 블로킹을 방지합니다.",
+        body: `<p>플라스틱 안티블로킹제(Anti-blocking Agent)는 고순도 실리카 기반으로 필름·시트의 접착(블로킹)을 방지하면서 우수한 광학 투명성을 유지합니다.</p><h2>주요 스펙</h2><ul><li>입자 크기: 2 – 10 µm</li><li>비표면적: 20 – 380 m²/g</li><li>흡유량: 150 – 300 ml/100g</li><li>벌크 밀도: 50 – 300 kg/m³</li><li>SiO₂ 순도: 99%</li></ul><h2>주요 용도</h2><p>PE/PP/PET 필름, 라미네이션 필름, 포장재 안티블로킹.</p>`,
+      },
+      {
+        slug: "silica-gel-matting",
+        ko: "소광제 (Matting Agent)",
+        en: "Matting Agent",
+        desc: "도료·코팅용 소광제. D50 3.5–10µm, 흡유량 100–330 ml/100g, 왁스 처리/무처리 옵션의 SiLiCA Matting Agent.",
+        body: `<p>소광제(Matting Agent)는 도료·코팅 시스템에 균일한 무광 효과와 우수한 분산성을 제공하는 실리카 기반 첨가제입니다.</p><h2>주요 스펙</h2><ul><li>입자 크기 D50: 3.5 – 10 µm</li><li>흡유량: 100 – 330 ml/100g</li><li>pH: 3.5 – 8</li><li>기공 부피: 0.4 – 2.2 ml/g</li><li>표면 처리: 왁스 처리 / 무처리</li><li>건조 감량(105℃): ≤ 5% / 강열 감량(1000℃): ≤ 6%</li></ul><h2>주요 용도</h2><p>UV 도료, 우드 코팅, 자동차 보수도료, 인쇄 잉크.</p>`,
+      },
+      {
+        slug: "silica-gel-large-pore",
+        ko: "대공극 실리카겔 (Large Pore Silica Gel)",
+        en: "Large Pore Volume Silica Gel",
+        desc: "기공 직경 16–25 nm, 기공 부피 1.2–2.2 ml/g의 대공극·고비표면적 실리카겔. 분자 흡착·촉매 담체용 최적화.",
+        body: `<p>대공극 실리카겔(Large Pore Volume Silica Gel)은 큰 기공 직경과 높은 기공 부피로 분자 흡착·촉매 담체용에 최적화된 실리카겔입니다.</p><h2>주요 스펙</h2><ul><li>기공 직경: 16 – 25 nm</li><li>비표면적: 200 – 350 m²/g</li><li>기공 부피: 1.2 – 2.2 ml/g</li></ul><h2>주요 용도</h2><p>촉매 담체, 대분자 흡착, 크로마토그래피 충전재.</p>`,
+      },
+      {
+        slug: "silica-gel-fng",
+        ko: "내수 실리카겔 FNG (Water-Resistant)",
+        en: "FNG Water-Resistant Silica Gel",
+        desc: "가혹 환경 전용 고성능 내수 실리카겔 FNG. 우수한 내수성·내후성·화학적 안정성을 갖춘 SiLiCA 특수 흡습 소재.",
+        body: `<p>내수 실리카겔 FNG(Water-Resistant Silica Gel)는 고온·고습 등 가혹 환경에서도 안정적으로 동작하도록 설계된 고성능 내수 실리카 소재입니다.</p><h2>주요 특성</h2><ul><li>내수성 · 내후성 · 화학적 안정성</li><li>포장/규격: 고객 맞춤 제작</li></ul><h2>주요 용도</h2><p>해상 운송 컨테이너, 군수·산업 장비 방습, 고온다습 환경 흡습.</p>`,
+      },
+      {
+        slug: "silica-gel-coarse",
+        ko: "조공극 실리카겔 (Coarse Pore Silica Gel)",
+        en: "Coarse Pore Silica Gel",
+        desc: "기공 8–12.5 nm, 비표면적 300–400 m²/g의 중간 기공 범용 흡착 실리카겔. 산업용 흡착·건조·정제 공정에 최적.",
+        body: `<p>조공극 실리카겔(Coarse Pore Silica Gel)은 균형 잡힌 중간 기공 구조로 다양한 산업용 흡착·건조·정제 공정에 사용됩니다.</p><h2>주요 스펙</h2><ul><li>기공 직경: 8 – 12.5 nm</li><li>비표면적: 300 – 400 m²/g</li><li>기공 부피: 0.8 – 1.0 ml/g</li></ul><h2>주요 용도</h2><p>가스 건조, 용제 정제, 산업용 흡착 공정.</p>`,
+      },
+      {
+        slug: "silica-gel-type-a",
+        ko: "A형 실리카겔 (Type A)",
+        en: "Silica Gel Type A",
+        desc: "기공 2–3 nm, 비표면적 650–800 m²/g의 미세기공·고비표면적 표준 흡착용 실리카겔. 건조제·흡습제 표준품.",
+        body: `<p>A형 실리카겔(Silica Gel Type A)은 미세기공과 매우 높은 비표면적을 가진 표준 흡착용 실리카겔로, 건조제·흡습제 등에 폭넓게 사용됩니다.</p><h2>주요 스펙</h2><ul><li>기공 직경: 2.0 – 3.0 nm</li><li>비표면적: 650 – 800 m²/g</li><li>기공 부피: 0.4 – 0.5 ml/g</li></ul><h2>주요 용도</h2><p>식품·전자제품 포장 방습제, 산업 건조제, 정밀기기 흡습.</p>`,
+      },
+      {
+        slug: "silica-gel-type-b",
+        ko: "B형 실리카겔 (Type B)",
+        en: "Silica Gel Type B",
+        desc: "기공 4.5–7 nm, 비표면적 450–650 m²/g의 중간 기공 다용도 실리카겔. 습도 변화가 큰 환경의 흡습에 최적.",
+        body: `<p>B형 실리카겔(Silica Gel Type B)은 중간 크기 기공과 적정한 비표면적을 갖춘 다목적 실리카겔로, 습도 변화가 큰 환경의 흡습 용도에 적합합니다.</p><h2>주요 스펙</h2><ul><li>기공 직경: 4.5 – 7.0 nm</li><li>비표면적: 450 – 650 m²/g</li><li>기공 부피: 0.6 – 0.85 ml/g</li></ul><h2>주요 용도</h2><p>고습 환경 흡습, 항습 패키징, 산업용 다목적 흡착.</p>`,
+      },
+    ] as const
+  ).map((p) => ({
+    path: `/products/${p.slug}`,
+    title: `${p.ko} | SiLiCA 실리카겔`,
+    description: p.desc,
+    h1: `${p.ko} · ${p.en}`,
+    body: p.body,
+  })),
+
 ];
 
 const routes: Route[] = [
