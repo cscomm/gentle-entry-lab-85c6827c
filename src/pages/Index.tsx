@@ -313,7 +313,9 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="text-sm font-semibold leading-snug">{lang === "en" ? p.enTitle : p.title}</h3>
+                  <h3 className="text-sm font-semibold leading-snug">
+                    {lang === "en" ? p.enTitle : `${p.title} (${p.enTitle})`}
+                  </h3>
                   <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{lang === "en" ? p.enDesc : p.desc}</p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary-glow transition group-hover:gap-2">
                     {t("products.detail")} <ArrowRight className="h-3.5 w-3.5" />
