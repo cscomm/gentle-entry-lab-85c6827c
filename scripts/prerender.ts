@@ -305,4 +305,6 @@ function main() {
   console.log(`[prerender] generated ${count} static HTML files.`);
 }
 
-main();
+if (import.meta.main) {
+  main();
+}
